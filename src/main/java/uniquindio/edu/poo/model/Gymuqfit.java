@@ -1,5 +1,5 @@
 
-package uniquindio.edu.poo.model;
+package uniquindio.edu.poo.model.
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +39,12 @@ public class Gymuqfit {
         this.listActividadDeportiva = new ArrayList<>();
         this.listMembresia = new ArrayList<>();
         this.listEntrenadores = new ArrayList<>();
-        this.tipoDeEstado=tipoDeEstado;
+        this.tipoDeEstado=TipoDeEstado.ABIERTO;
     }
+
 
     public void regristrarUsuario(Usuario usuario){
         listUsuario.add(usuario);
-
     }
 
     public void registrarClases(Clases clases){
