@@ -1,6 +1,9 @@
 package uniquindio.edu.poo.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ActividadDeportiva {
     private String nombre;
     private String apellido;
@@ -9,10 +12,19 @@ public class ActividadDeportiva {
     private String maquinas;
     private int identificacion;
     private int telefono;
+    private String descripcionEjercicios;
+
+    //VINCULACION CON ENUM
+
+    private RutinasDeFuerza rutinasDeFuerza;
+
+        //ASOCIACION
+
+    private Usuario usuario;
 
 
 
-public ActividadDeportiva(String nombre, String apellido, String actividadDeFuerza, String actividadCardiovascular, String maquinas, int identificacion, int telefono) {
+public ActividadDeportiva(String nombre, String apellido, String actividadDeFuerza, String actividadCardiovascular, String maquinas, int identificacion, int telefono, String descripcionEjercicios,RutinasDeFuerza rutinasDeFuerza ,Usuario usuario) {
 
     this.nombre=nombre;
     this.apellido=apellido;
@@ -21,6 +33,9 @@ public ActividadDeportiva(String nombre, String apellido, String actividadDeFuer
     this.maquinas=maquinas;
     this.identificacion=identificacion;
     this.telefono=telefono;
+    this.descripcionEjercicios=descripcionEjercicios;
+    this.rutinasDeFuerza=rutinasDeFuerza;
+    this.usuario=usuario;
 }
 
     public String getNombre() {
@@ -79,6 +94,33 @@ public ActividadDeportiva(String nombre, String apellido, String actividadDeFuer
         this.telefono = telefono;
     }
 
+
+
+    public String getDescripcionEjercicios() {
+        return descripcionEjercicios;
+    }
+
+    public void setDescripcionEjercicios(String descripcionEjercicios) {
+        this.descripcionEjercicios = descripcionEjercicios;
+    }
+
+
+    public Usuario getTheusuario() {
+        return usuario;
+    }
+
+    public void setTheusuario(Usuario theusuario) {
+        this.usuario = theusuario;
+    }
+
+    public RutinasDeFuerza getRutinasDeFuerza() {
+        return rutinasDeFuerza;
+    }
+
+    public void setRutinasDeFuerza(RutinasDeFuerza rutinasDeFuerza) {
+        this.rutinasDeFuerza = rutinasDeFuerza;
+    }
+
     @Override
     public String toString() {
         return "ActividadDeportiva{" +
@@ -89,6 +131,13 @@ public ActividadDeportiva(String nombre, String apellido, String actividadDeFuer
                 ", maquinas='" + maquinas + '\'' +
                 ", identificacion=" + identificacion +
                 ", telefono=" + telefono +
+                ", descripcionEjercicios='" + descripcionEjercicios + '\'' +
+                ", rutinasDeFuerza=" + rutinasDeFuerza +
+                ", theusuario=" + usuario +
                 '}';
     }
+
+
+
 }
+

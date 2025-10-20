@@ -1,8 +1,5 @@
 package uniquindio.edu.poo;
 import uniquindio.edu.poo.model.*;
-
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -38,7 +35,7 @@ public class Main {
         opcion=scanner.nextInt();
         scanner.nextLine().trim();
         if(opcion==1){
-            registrarUsuario(usuario);
+            registrarUsuario(Gymuqfit);
         } else  if(opcion==2){
             registrarMembresia(Gymuqfit);
         } else if (opcion==3){
@@ -70,7 +67,7 @@ public class Main {
     scanner.close();
     }
 
-    public static  Usuario registrarUsuario(Usuario usuario) {
+    public static  void registrarUsuario(Usuario usuario) {
 
         System.out.println("Ingrese el nombre del usuario");
         String nombre = scanner.nextLine();
@@ -96,7 +93,7 @@ public class Main {
 
     }
 
-    public  static Membresia registrarMembresia(Membresia membresia) {
+    public  static void registrarMembresia(Membresia membresia) {
         System.out.println("Ingrese el tipo de membresia");
         String tipoMembresia = scanner.nextLine();
 
@@ -114,7 +111,7 @@ public class Main {
 
     }
 
-    public  void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
+    public static void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
         System.out.println("Ingrese el nombre de la actividad deportiva");
         String nombreActividadDeportiva = scanner.nextLine();
 
@@ -137,7 +134,7 @@ public class Main {
         int telefonoActividadDeportiva = scanner.nextInt();
     }
 
-    public  void registrarClases(Clases classes) {
+    public  static void registrarClases(Clases classes) {
         System.out.println("Ingrese el nombre del usuario");
         String nombre = scanner.nextLine();
 
@@ -160,7 +157,7 @@ public class Main {
         String horaSalida = scanner.nextLine();
 
     }
-    public  void verificarInformacionUsuario(Usuario usuario){
+    public  static void verificarInformacionUsuario(Usuario usuario){
         System.out.println("Ingrese el nombre del usuario");
         String verificarNombreDeUsuario=scanner.nextLine();
 
@@ -172,7 +169,7 @@ public class Main {
 
     }
 
-    public  void verificarClases(Clases clases){
+    public  static void verificarClases(Clases clases){
         System.out.println("Ingrese el numero de identificacion del usuario");
         String verificarIdentificacionDeUsuario=scanner.nextLine();
 
@@ -190,7 +187,7 @@ public class Main {
 
     }
 
-    public  void verificarMembresia(Membresia membresia) {
+    public  static void  verificarMembresia(Membresia membresia) {
         System.out.println("Ingrese el tipo de membresia");
         String tipoMembresia = scanner.nextLine();
 
@@ -207,7 +204,7 @@ public class Main {
         String fechaFinalizacion = scanner.nextLine();
     }
 
-    public  void agendarClases(Clases clases) {
+    public  static void agendarClases(Clases clases) {
         System.out.println("Ingrese el nombre del usuario");
         String nombre = scanner.nextLine();
 
@@ -230,7 +227,7 @@ public class Main {
         String horaDeFinalizacionClase = scanner.nextLine();
     }
 
-    public  void agendarUsuario(Usuario usuario){
+    public  static void agendarUsuario(Usuario usuario){
         System.out.println("Ingrese el nombre del usuario");
         String nombre = scanner.nextLine();
 
@@ -254,7 +251,7 @@ public class Main {
 
     }
 
-    public  void agendarEntrenadores(Entrenadores entrenadores){
+    public  static void agendarEntrenadores(Entrenadores entrenadores){
         System.out.println("Ingrese el nombre del Entrenador");
         String nombreEntrenador = scanner.nextLine();
 
@@ -278,7 +275,7 @@ public class Main {
 
     }
 
-    public  void agendarActividadDeportiva(ActividadDeportiva actividadDeportiva){
+    public  static void agendarActividadDeportiva(ActividadDeportiva actividadDeportiva){
         System.out.println("Ingrese el nombre del usuario para la actividad deportiva");
         String nombreActividadDeportiva = scanner.nextLine();
 
@@ -294,7 +291,7 @@ public class Main {
 
     }
 
-    public  void generarUsuario(Usuario usuario){
+    public  static void generarUsuario(Usuario usuario){
 
 
         System.out.println("Ingrese el nombre del usuario");
@@ -324,11 +321,11 @@ public class Main {
         System.out.println("Ingrese el nombre del entrebnador");
         String nombreEntrenador = scanner.nextLine();
 
-        LocalDateTime time = LocalDateTime.of()
+        LocalDateTime time = LocalDateTime.of();
     }
 
 
-    public void TipoDeEstado(String mensaje) {
+    public static void TipoDeEstado(String mensaje) {
             TipoDeEstado estado = TipoDeEstado.ABIERTO;
             String tipoDeEstado = scanner.nextLine();
             System.out.println("Tipo de Estado:" + estado);

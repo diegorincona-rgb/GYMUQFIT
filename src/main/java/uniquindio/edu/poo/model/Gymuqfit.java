@@ -1,6 +1,7 @@
 
-package uniquindio.edu.poo.model.
+package uniquindio.edu.poo.model;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,8 @@ public class Gymuqfit {
     private String direccion;
     private int telefonoOficina;
     private int codigo;
-    private LocalDateTime horarioInicio;
-    private LocalDateTime horarioCierre;
+    private LocalTime horarioInicio;
+    private LocalTime horarioCierre;
 
 
     //AGRUPACION
@@ -24,9 +25,11 @@ public class Gymuqfit {
     //ASOCIASION
     private List<Entrenadores> listEntrenadores;
 
+    //
+
     private TipoDeEstado tipoDeEstado;
 
-    public Gymuqfit(String nombre, String direccion, int telefonoOficina, int codigo, LocalDateTime horarioInicio, LocalDateTime horarioCierre) {
+    public Gymuqfit(String nombre, String direccion, int telefonoOficina, int codigo, LocalTime horarioInicio, LocalTime horarioCierre) {
 
         this.nombre = nombre;
         this.direccion = direccion;
@@ -40,6 +43,7 @@ public class Gymuqfit {
         this.listMembresia = new ArrayList<>();
         this.listEntrenadores = new ArrayList<>();
         this.tipoDeEstado=TipoDeEstado.ABIERTO;
+
     }
 
 

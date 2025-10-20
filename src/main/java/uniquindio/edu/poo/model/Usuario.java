@@ -1,23 +1,49 @@
 package uniquindio.edu.poo.model;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Usuario {
+public abstract class Usuario {
     private String nombres;
     private String apellidos;
     private int identificacion;
     private String direccion;
     private String correo;
     private int telefono;
+    private int edad;
+    private double peso;
+    private double altura;
+    private LocalDate fechaNacimiento;
+
+    //VINCULACION CON ENUM
+    private RutinasDeFuerza rutinasDeFuerza;
 
 
-public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono) {
+    //ASOCIASION
+
+    private List<ActividadDeportiva> listActividadDeportivaUsuario;
+
+
+    //CALCULAR MEDIDAS USUARIO
+    public abstract double CalcularMedidas();
+
+
+public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, double peso, double altura, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza) {
     this.nombres=nombres;
     this.apellidos=apellidos;
     this.identificacion=identificacion;
     this.direccion=direccion;
     this.correo=correo;
     this.telefono=telefono;
+    this.edad=edad;
+    this.peso=peso;
+    this.altura=altura;
+    this.fechaNacimiento=fechaNacimiento;
+    this.rutinasDeFuerza=rutinasDeFuerza;
+    this.listActividadDeportivaUsuario=new ArrayList<>();
+
 
 
 
@@ -71,6 +97,54 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
         this.telefono = telefono;
     }
 
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public List<ActividadDeportiva> getListActividadDeportivaUsuario() {
+        return listActividadDeportivaUsuario;
+    }
+
+    public void setListActividadDeportivaUsuario(List<ActividadDeportiva> listActividadDeportivaUsuario) {
+        this.listActividadDeportivaUsuario = listActividadDeportivaUsuario;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public RutinasDeFuerza getRutinasDeFuerza() {
+        return rutinasDeFuerza;
+    }
+
+    public void setRutinasDeFuerza(RutinasDeFuerza rutinasDeFuerza) {
+        this.rutinasDeFuerza = rutinasDeFuerza;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -80,6 +154,14 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
                 ", direccion='" + direccion + '\'' +
                 ", correo='" + correo + '\'' +
                 ", telefono=" + telefono +
+                ", edad=" + edad +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", rutinasDeFuerza=" + rutinasDeFuerza +
+                ", listActividadDeportivaUsuario=" + listActividadDeportivaUsuario +
                 '}';
     }
 }
+
+
