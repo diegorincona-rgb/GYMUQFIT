@@ -1,19 +1,29 @@
 package uniquindio.edu.poo.model;
 
+import java.time.LocalDate;
+
 public class Trabajadoresuq extends Usuario {
 
     private String lugarDondeLabora;
     private int codigoServicio;
     private String cargo;
+    private double peso;
+    private double altura;
 
-public Trabajadoresuq(String nombre, String apellido, int identificacion, String correo, String direccion, int telefono, String lugarDondeLabora, int codigoServicio, String cargo) {
-    super(nombre,apellido,identificacion,correo,direccion,telefono);
+public Trabajadoresuq(String nombre, String apellido, int identificacion, String direccion, String correo, int telefono, int edad, LocalDate fechaNacimiento,RutinasDeFuerza rutinasDeFuerza,String lugarDondeLabora, int codigoServicio, String cargo, double peso, double altura) {
+    super(nombre,apellido,identificacion,direccion,correo,telefono,edad,fechaNacimiento,rutinasDeFuerza);
     this.lugarDondeLabora = lugarDondeLabora;
     this.codigoServicio = codigoServicio;
     this.cargo = cargo;
+    this.peso = peso;
+    this.altura = altura;
 
 
 }
+    public double calcularMedidas() {
+        double resultado = peso / (altura * altura);
+        return resultado;
+    }
 
     public String getLugarDondeLabora() {
         return lugarDondeLabora;

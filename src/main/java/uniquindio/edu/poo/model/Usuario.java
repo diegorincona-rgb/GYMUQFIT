@@ -13,8 +13,6 @@ public abstract class Usuario {
     private String correo;
     private int telefono;
     private int edad;
-    private double peso;
-    private double altura;
     private LocalDate fechaNacimiento;
 
     //VINCULACION CON ENUM
@@ -26,11 +24,9 @@ public abstract class Usuario {
     private List<ActividadDeportiva> listActividadDeportivaUsuario;
 
 
-    //CALCULAR MEDIDAS USUARIO
-    public abstract double CalcularMedidas();
 
 
-public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, double peso, double altura, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza) {
+public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza) {
     this.nombres=nombres;
     this.apellidos=apellidos;
     this.identificacion=identificacion;
@@ -38,16 +34,17 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
     this.correo=correo;
     this.telefono=telefono;
     this.edad=edad;
-    this.peso=peso;
-    this.altura=altura;
     this.fechaNacimiento=fechaNacimiento;
     this.rutinasDeFuerza=rutinasDeFuerza;
     this.listActividadDeportivaUsuario=new ArrayList<>();
 
 
-
-
     }
+
+
+    public abstract double calcularMedidas();
+
+
 
     public String getNombres() {
         return nombres;
@@ -121,22 +118,6 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
         this.edad = edad;
     }
 
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
     public RutinasDeFuerza getRutinasDeFuerza() {
         return rutinasDeFuerza;
     }
@@ -155,13 +136,12 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
                 ", correo='" + correo + '\'' +
                 ", telefono=" + telefono +
                 ", edad=" + edad +
-                ", peso=" + peso +
-                ", altura=" + altura +
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", rutinasDeFuerza=" + rutinasDeFuerza +
                 ", listActividadDeportivaUsuario=" + listActividadDeportivaUsuario +
                 '}';
     }
+
 }
 
 

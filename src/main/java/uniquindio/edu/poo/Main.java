@@ -1,6 +1,9 @@
 package uniquindio.edu.poo;
 import uniquindio.edu.poo.model.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Main {
@@ -8,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-    Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalDateTime.of(2025,10,21, 23,22,10),14/00);
+    Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalTime.of(5,0),LocalTime.of(12,0),LocalTime.of(15,0),LocalTime.of(22,0),TipoDeEstado.ABIERTO);
 
     int opcion=-1;
 
@@ -26,9 +29,7 @@ public class Main {
         System.out.print("9. agendar Usuarios");
         System.out.print("10. agendar Entrenadores");
         System.out.print("11. agendar ActividadDeportiva");
-        System.out.print("12. generar Usuarios");
-        System.out.print("13. generar Clases");
-        System.out.print("14. eliminar Usuario");
+        System.out.print("12. generar informacion");
         System.out.print("0. Salir");
 
         System.out.print("\n Ingrese la opcion que desea registrar");
@@ -57,7 +58,7 @@ public class Main {
         } else if (opcion==11) {
             agendarActividadDeportiva(Gymuqfit);
         } else if (opcion==12) {
-            generarUsuario(Gymuqfit);
+            generarInformacion(Gymuqfit);
         } else if (opcion==0) {
             System.exit(0);
         } else {
@@ -87,10 +88,56 @@ public class Main {
         System.out.println("Ingrese la telefono del usuario");
         int telefono = scanner.nextInt();
 
-        Usuario usuario1 = new Usuario(nombre, apellido, identificacion, direccion, correo, telefono);
+        System.out.println("Ingrese la edad del usuario");
+        int edad = scanner.nextInt();
 
+        System.out.println("Ingrese la peso del usuario");
+        double peso = scanner.nextDouble();
 
+        System.out.println("Ingrese la altura del usuario");
+        double altura = scanner.nextDouble();
 
+        System.out.println("Ingrese el Año de nacimiento del usuario");
+        int anio = scanner.nextInt();
+
+        System.out.println("Ingrese el Mes de nacimiento del usuario");
+        int mes = scanner.nextInt();
+
+        System.out.println("Ingrese el Dia de nacimiento del usuario");
+        int dia = scanner.nextInt();
+
+        LocalDate fechaNacimiento= LocalDate.of(anio,mes,dia);
+        System.out.println("La fecha de Nacimiento del usuario"+fechaNacimiento);
+
+        System.out.println("ingrese el curso Academico que cursa");
+        String cursoAcademico = scanner.nextLine();
+
+        System.out.println("Ingrese el Programa Academico en el que se encuentra");
+        String programa = scanner.nextLine();
+
+        System.out.println("Ingrese el semestre en el que se encuentra");
+        int semestre = scanner.nextInt();
+
+        System.out.println("Ingrese el lugar donde labora");
+        String lugarDondeLabora = scanner.nextLine();
+
+        System.out.println("Ingrese el codigo de servicio asignado");
+        int codigoServicio = scanner.nextInt();
+
+        System.out.println("Ingrese el Cargo ");
+        String cargo = scanner.nextLine();
+
+        System.out.println("Ingrese la ocupacion del usuario");
+        String ocupacion = scanner.nextLine();
+
+        System.out.println("Ingrese la Empresa donde labora el usuario");
+        String empresaDondeLabora = scanner.nextLine();
+
+        Estudiante estudiante =new Estudiante(nombre, apellido,identificacion,direccion,correo,telefono,edad,peso,altura,fechaNacimiento,RutinasDeFuerza.PESO_MUERTO,cursoAcademico,programa,semestre);
+
+        Trabajadoresuq trabajadoresuq = new Trabajadoresuq(nombre,apellido,identificacion,direccion,correo,telefono,edad,fechaNacimiento,RutinasDeFuerza.SENTADILLAS,lugarDondeLabora,codigoServicio,cargo,peso,altura);
+
+        Externos externos =new Externos(nombre,apellido,identificacion,direccion,correo,telefono,edad,peso,altura,fechaNacimiento,RutinasDeFuerza.PESO_MUERTO,cargo,ocupacion,empresaDondeLabora);
     }
 
     public  static void registrarMembresia(Membresia membresia) {
@@ -291,7 +338,7 @@ public class Main {
 
     }
 
-    public  static void generarUsuario(Usuario usuario){
+    public  static void generarInformacion(Gymuqfit gymuqfit,Usuario usuario,Membresia membresia,Clases clases,ActividadDeportiva actividadDeportiva,Entrenadores entrenadores,Estudiante estudiante,Externos externos,Trabajadoresuq trabajadoresuq,RutinasDeFuerza rutinasDeFuerza,TipoDeEstado tipoDeEstado){
 
 
         System.out.println("Ingrese el nombre del usuario");
@@ -321,7 +368,7 @@ public class Main {
         System.out.println("Ingrese el nombre del entrebnador");
         String nombreEntrenador = scanner.nextLine();
 
-        LocalDateTime time = LocalDateTime.of();
+
     }
 
 
