@@ -1,25 +1,34 @@
 package uniquindio.edu.poo.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Membresia {
 
     private String tipoMembresia;
     private String estadoMembresia;
     private double costoMembresia;
-    private LocalDate fechadeInciioMembresia;
+    private LocalDate fechadeInicioMembresia;
     private LocalDate fechaVencimientoMembresia;
 
     //ASOSIACION
-    private Usuario usuario;
 
-    public Membresia(String tipoMembresia, String estadoMembresia, double costoMembresia, LocalDate fehcaInicioMembresia, LocalDate fechaVencimientoMembresia, Usuario  usuario) {
+    private Usuario usuario;
+    private ActividadDeportiva actividadDeportiva;
+    private Clases classes;
+    private Entrenadores entrenadores;
+
+    public Membresia(String tipoMembresia, String estadoMembresia, double costoMembresia, LocalDate fehcaInicioMembresia, LocalDate fechaVencimientoMembresia, Usuario usuario, ActividadDeportiva actividadDeportiva, Clases classes, Entrenadores entrenadores) {
         this.tipoMembresia = tipoMembresia;
         this.estadoMembresia=estadoMembresia;
         this.costoMembresia=costoMembresia;
-        this.fechadeInciioMembresia=fehcaInicioMembresia;
+        this.fechadeInicioMembresia=fehcaInicioMembresia;
         this.fechaVencimientoMembresia=fechaVencimientoMembresia;
         this.usuario=usuario;
+        this.actividadDeportiva=actividadDeportiva;
+        this.classes=classes;
+        this.entrenadores=entrenadores;
+
 
 
     }
@@ -30,9 +39,8 @@ public class Membresia {
                 "tipoMembresia='" + tipoMembresia + '\'' +
                 ", estadoMembresia='" + estadoMembresia + '\'' +
                 ", costoMembresia=" + costoMembresia +
-                ", fechadeInciioMembresia=" + fechadeInciioMembresia +
+                ", fechadeInciioMembresia=" + fechadeInicioMembresia +
                 ", fechaVencimientoMembresia=" + fechaVencimientoMembresia +
-                ", usuario=" + usuario +
                 '}';
     }
 
@@ -60,12 +68,12 @@ public class Membresia {
         this.costoMembresia = costoMembresia;
     }
 
-    public LocalDate getFechadeInciioMembresia() {
-        return fechadeInciioMembresia;
+    public LocalDate getFechadeInicioMembresia() {
+        return fechadeInicioMembresia;
     }
 
-    public void setFechadeInciioMembresia(LocalDate fechadeInciioMembresia) {
-        this.fechadeInciioMembresia = fechadeInciioMembresia;
+    public void setFechadeInicioMembresia(LocalDate fechadeInciioMembresia) {
+        this.fechadeInicioMembresia = fechadeInciioMembresia;
     }
 
     public LocalDate getFechaVencimientoMembresia() {
@@ -84,5 +92,28 @@ public class Membresia {
         this.usuario = usuario;
     }
 
+    public ActividadDeportiva getActividadDeportiva() {
+        return actividadDeportiva;
+    }
 
+    public void setActividadDeportiva(ActividadDeportiva actividadDeportiva) {
+        this.actividadDeportiva = actividadDeportiva;
+    }
+
+    public Clases getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Clases classes) {
+        this.classes = classes;
+    }
+
+    public Entrenadores getEntrenadores() {
+        return entrenadores;
+    }
+
+    public void setEntrenadores(Entrenadores entrenadores) {
+        this.entrenadores = entrenadores;
+    }
 }
+

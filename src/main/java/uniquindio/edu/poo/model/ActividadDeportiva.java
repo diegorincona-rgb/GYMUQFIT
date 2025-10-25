@@ -7,35 +7,41 @@ import java.util.List;
 public class ActividadDeportiva {
     private String nombre;
     private String apellido;
+    private int identificacion;
+    private int telefono;
     private String actividadDeFuerza;
     private String actividadCardiovascular;
     private String maquinas;
-    private int identificacion;
-    private int telefono;
     private String descripcionEjercicios;
 
     //VINCULACION CON ENUM
-
     private RutinasDeFuerza rutinasDeFuerza;
 
-        //ASOCIACION
 
+    //ASOCIACION
     private Usuario usuario;
+    private Entrenadores entrenadores;
+
+    private List<Membresia> listMembresiaDeLaActividadDeportiva;
+    private List<ActividadDeportiva> listClasesDeActividadDeportivasDeportivas;
 
 
 
-public ActividadDeportiva(String nombre, String apellido, String actividadDeFuerza, String actividadCardiovascular, String maquinas, int identificacion, int telefono, String descripcionEjercicios,RutinasDeFuerza rutinasDeFuerza ,Usuario usuario) {
+    public ActividadDeportiva(String nombre, String apellido,int identificacion, int telefono, String actividadDeFuerza, String actividadCardiovascular, String maquinas, String descripcionEjercicios,RutinasDeFuerza rutinasDeFuerza ,Usuario usuario, Entrenadores entrenadores) {
 
     this.nombre=nombre;
     this.apellido=apellido;
+    this.identificacion=identificacion;
+    this.telefono=telefono;
     this.actividadDeFuerza=actividadDeFuerza;
     this.actividadCardiovascular=actividadCardiovascular;
     this.maquinas=maquinas;
-    this.identificacion=identificacion;
-    this.telefono=telefono;
     this.descripcionEjercicios=descripcionEjercicios;
     this.rutinasDeFuerza=rutinasDeFuerza;
     this.usuario=usuario;
+    this.listMembresiaDeLaActividadDeportiva=new ArrayList<>();
+    this.entrenadores=entrenadores;
+    this.listClasesDeActividadDeportivasDeportivas=new ArrayList<>();
 }
 
     public String getNombre() {
@@ -94,7 +100,21 @@ public ActividadDeportiva(String nombre, String apellido, String actividadDeFuer
         this.telefono = telefono;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Membresia> getListMembresiaDeLaActividadDeportiva() {
+        return listMembresiaDeLaActividadDeportiva;
+    }
+
+    public void setListMembresiaDeLaActividadDeportiva(List<Membresia> listMembresiaDeLaActividadDeportiva) {
+        this.listMembresiaDeLaActividadDeportiva = listMembresiaDeLaActividadDeportiva;
+    }
 
     public String getDescripcionEjercicios() {
         return descripcionEjercicios;
@@ -103,7 +123,6 @@ public ActividadDeportiva(String nombre, String apellido, String actividadDeFuer
     public void setDescripcionEjercicios(String descripcionEjercicios) {
         this.descripcionEjercicios = descripcionEjercicios;
     }
-
 
     public Usuario getTheusuario() {
         return usuario;
@@ -119,6 +138,22 @@ public ActividadDeportiva(String nombre, String apellido, String actividadDeFuer
 
     public void setRutinasDeFuerza(RutinasDeFuerza rutinasDeFuerza) {
         this.rutinasDeFuerza = rutinasDeFuerza;
+    }
+
+    public Entrenadores getEntrenadores() {
+        return entrenadores;
+    }
+
+    public void setEntrenadores(Entrenadores entrenadores) {
+        this.entrenadores = entrenadores;
+    }
+
+    public List<ActividadDeportiva> getListClasesDeActividadDeportivasDeportivas() {
+        return listClasesDeActividadDeportivasDeportivas;
+    }
+
+    public void setListClasesDeActividadDeportivasDeportivas(List<ActividadDeportiva> listClasesDeActividadDeportivasDeportivas) {
+        this.listClasesDeActividadDeportivasDeportivas = listClasesDeActividadDeportivasDeportivas;
     }
 
     @Override

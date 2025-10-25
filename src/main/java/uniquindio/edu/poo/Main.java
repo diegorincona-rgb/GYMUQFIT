@@ -138,6 +138,8 @@ public class Main {
         Trabajadoresuq trabajadoresuq = new Trabajadoresuq(nombre,apellido,identificacion,direccion,correo,telefono,edad,fechaNacimiento,RutinasDeFuerza.SENTADILLAS,lugarDondeLabora,codigoServicio,cargo,peso,altura);
 
         Externos externos =new Externos(nombre,apellido,identificacion,direccion,correo,telefono,edad,peso,altura,fechaNacimiento,RutinasDeFuerza.PESO_MUERTO,cargo,ocupacion,empresaDondeLabora);
+
+        gym
     }
 
     public  static void registrarMembresia(Membresia membresia) {

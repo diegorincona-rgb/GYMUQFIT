@@ -3,6 +3,7 @@ package uniquindio.edu.poo.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class Usuario {
@@ -19,17 +20,19 @@ public abstract class Usuario {
     private RutinasDeFuerza rutinasDeFuerza;
 
 
-    //ASOCIASION
+    //ASOCIASION LISTAS
 
     private List<ActividadDeportiva> listActividadDeportivaUsuario;
-    private List<Membresia>listMembresiaDeUsuarios;
     private List<Clases>listClasesDeUsuario;
-    private Entrenadores entrenadores;
+
+    //ASICIASION  UNITARIA
+
+    private List<Entrenadores> listEntrenadoresDeUsuario;
+    private List<Membresia> listMembresiaDeUsuarios;
 
 
 
-
-public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza,Entrenadores entrenadores) {
+public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza) {
     this.nombres=nombres;
     this.apellidos=apellidos;
     this.identificacion=identificacion;
@@ -39,9 +42,9 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
     this.edad=edad;
     this.fechaNacimiento=fechaNacimiento;
     this.rutinasDeFuerza=rutinasDeFuerza;
-    this.entrenadores=entrenadores;
+    this.listEntrenadoresDeUsuario=new ArrayList<>();
     this.listActividadDeportivaUsuario=new ArrayList<>();
-    this.listMembresiaDeUsuarios=new ArrayList<>();
+    this.listMembresiaDeUsuarios= new  ArrayList<>();
     this.listClasesDeUsuario=new ArrayList<>();
 
 
@@ -132,13 +135,6 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
         this.rutinasDeFuerza = rutinasDeFuerza;
     }
 
-    public List<Membresia> getListMembresiaDeUsuarios() {
-        return listMembresiaDeUsuarios;
-    }
-
-    public void setListMembresiaDeUsuarios(List<Membresia> listMembresiaDeUsuarios) {
-        this.listMembresiaDeUsuarios = listMembresiaDeUsuarios;
-    }
 
     public List<Clases> getListClasesDeUsuario() {
         return listClasesDeUsuario;
@@ -148,12 +144,20 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
         this.listClasesDeUsuario = listClasesDeUsuario;
     }
 
-    public Entrenadores getEntrenadores() {
-        return entrenadores;
+    public List<Entrenadores> getListEntrenadoresDeUsuario() {
+        return listEntrenadoresDeUsuario;
     }
 
-    public void setEntrenadores(Entrenadores entrenadores) {
-        this.entrenadores = entrenadores;
+    public void setListEntrenadoresDeUsuario(List<Entrenadores> listEntrenadoresDeUsuario) {
+        this.listEntrenadoresDeUsuario = listEntrenadoresDeUsuario;
+    }
+
+    public List<Membresia> getListMembresiaDeUsuarios() {
+        return listMembresiaDeUsuarios;
+    }
+
+    public void setListMembresiaDeUsuarios(List<Membresia> listMembresiaDeUsuarios) {
+        this.listMembresiaDeUsuarios = listMembresiaDeUsuarios;
     }
 
     @Override
@@ -169,9 +173,8 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", rutinasDeFuerza=" + rutinasDeFuerza +
                 ", listActividadDeportivaUsuario=" + listActividadDeportivaUsuario +
-                ", listMembresiaDeUsuarios=" + listMembresiaDeUsuarios +
                 ", listClasesDeUsuario=" + listClasesDeUsuario +
-                ", entrenadores=" + entrenadores +
+                ", listMembresiaDeUsuarios=" + listMembresiaDeUsuarios +
                 '}';
     }
 }

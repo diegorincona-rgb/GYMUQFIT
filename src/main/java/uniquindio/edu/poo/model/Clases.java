@@ -2,6 +2,8 @@ package uniquindio.edu.poo.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Clases {
     private String nombre;
@@ -15,8 +17,13 @@ public class Clases {
 
     //ASOCIASION
     private Usuario usuario;
+    private Entrenadores entrenadores;
 
-public Clases(String nombre, String apellido, int identificacion, LocalDate fechaInicio, LocalDate fechaFinal, LocalTime horaInicio, LocalTime horaFinal, Usuario usuario) {
+    private List<Clases> listMembresiaParaLasClases;
+    private List<ActividadDeportiva> listActividadDeportivasParaLasClases;
+
+
+public Clases(String nombre, String apellido, int identificacion, LocalDate fechaInicio, LocalDate fechaFinal, LocalTime horaInicio, LocalTime horaFinal, Usuario usuario,Entrenadores entrenadores) {
     this.nombre=nombre;
     this.apellido=apellido;
     this.identificacion=identificacion;
@@ -25,6 +32,10 @@ public Clases(String nombre, String apellido, int identificacion, LocalDate fech
     this.horaInicio=horaInicio;
     this.horaFinal=horaFinal;
     this.usuario=usuario;
+    this.entrenadores=entrenadores;
+    this.listMembresiaParaLasClases=new ArrayList<>();
+    this.listActividadDeportivasParaLasClases=new ArrayList<>();
+
 }
 
     public String getNombre() {
@@ -86,6 +97,30 @@ public Clases(String nombre, String apellido, int identificacion, LocalDate fech
     public Usuario getUsuario(){return usuario;}
 
     public void setUsuario(Usuario usuario){this.usuario=usuario;}
+
+    public List<Clases> getListMembresiaParaLasClases() {
+        return listMembresiaParaLasClases;
+    }
+
+    public void setListMembresiaParaLasClases(List<Clases> listMembresiaParaLasClases) {
+        this.listMembresiaParaLasClases = listMembresiaParaLasClases;
+    }
+
+    public Entrenadores getEntrenadores() {
+        return entrenadores;
+    }
+
+    public void setEntrenadores(Entrenadores entrenadores) {
+        this.entrenadores = entrenadores;
+    }
+
+    public List<ActividadDeportiva> getListActividadDeportivasParaLasClases() {
+        return listActividadDeportivasParaLasClases;
+    }
+
+    public void setListActividadDeportivasParaLasClases(List<ActividadDeportiva> listActividadDeportivasParaLasClases) {
+        this.listActividadDeportivasParaLasClases = listActividadDeportivasParaLasClases;
+    }
 
     @Override
     public String toString() {

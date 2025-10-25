@@ -18,18 +18,30 @@ public class Gymuqfit {
     private LocalTime horarioCierreEnLaNoche;
 
 
-    //AGRUPACION
+    //COMPOSICION
     private List<Usuario> listUsuario;
     private List<Clases> listClases;
     private List<ActividadDeportiva> listActividadDeportiva;
     private List<Membresia> listMembresia;
 
-    //ASOCIASION
+    //AGREGACION
     private List<Entrenadores> listEntrenadores;
 
-    //
-
+    //INVOCACION ENUM
     private TipoDeEstado tipoDeEstado;
+
+    /**
+     * Cosntructor de la clase GymUQFIT  (Universidad del Quindio).
+     * @param nombre del GymUQFIT
+     * @param direccion del GymUQFIT
+     * @param telefonoOficina del GymUQFIT
+     * @param codigo del GymUQFIT
+     * @param horarioInicioEnLaMañana del GymUQFIT
+     * @param horarioCierreEnLaMañana del GymUQFIT
+     * @param horarioInicioEnLaTarde del GymUQFIT
+     * @param horarioCierreEnLaNoche del GymUQFIT
+     * @param tipoDeEstado del GymUQFIT
+     */
 
     public Gymuqfit(String nombre, String direccion, int telefonoOficina, int codigo, LocalTime horarioInicioEnLaMañana, LocalTime horarioCierreEnLaMañana,LocalTime horarioInicioEnLaTarde, LocalTime horarioCierreEnLaNoche, TipoDeEstado tipoDeEstado) {
 
@@ -50,144 +62,64 @@ public class Gymuqfit {
 
     }
 
-
-    public Gymuqfit(String gymuqfit, String direccion, int telefonoOficina, int codigo, LocalDateTime of, int i) {
-    }
+    //METODOS GETTERS Y SETTERS
 
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public int getTelefonoOficina() {
-        return telefonoOficina;
-    }
-
-    public void setTelefonoOficina(int telefonoOficina) {
-        this.telefonoOficina = telefonoOficina;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public LocalTime getHorarioInicioEnLaMañana() {
-        return horarioInicioEnLaMañana;
-    }
-
-    public void setHorarioInicioEnLaMañana(LocalTime horarioInicioEnLaMañana) {
-        this.horarioInicioEnLaMañana = horarioInicioEnLaMañana;
-    }
-
-    public LocalTime getHorarioCierreEnLaMañana() {
-        return horarioCierreEnLaMañana;
-    }
-
-    public void setHorarioCierreEnLaMañana(LocalTime horarioCierreEnLaMañana) {
-        this.horarioCierreEnLaMañana = horarioCierreEnLaMañana;
-    }
-
-    public LocalTime getHorarioInicioEnLaTarde() {
-        return horarioInicioEnLaTarde;
-    }
-
-    public void setHorarioInicioEnLaTarde(LocalTime horarioInicioEnLaTarde) {
-        this.horarioInicioEnLaTarde = horarioInicioEnLaTarde;
-    }
-
-    public LocalTime getHorarioCierreEnLaNoche() {
-        return horarioCierreEnLaNoche;
-    }
-
-    public void setHorarioCierreEnLaNoche(LocalTime horarioCierreEnLaNoche) {
-        this.horarioCierreEnLaNoche = horarioCierreEnLaNoche;
-    }
 
     public List<Usuario> getListUsuario() {
         return listUsuario;
-    }
-
-    public void setListUsuario(List<Usuario> listUsuario) {
-        this.listUsuario = listUsuario;
     }
 
     public List<Clases> getListClases() {
         return listClases;
     }
 
-    public void setListClases(List<Clases> listClases) {
-        this.listClases = listClases;
-    }
-
     public List<ActividadDeportiva> getListActividadDeportiva() {
         return listActividadDeportiva;
-    }
-
-    public void setListActividadDeportiva(List<ActividadDeportiva> listActividadDeportiva) {
-        this.listActividadDeportiva = listActividadDeportiva;
     }
 
     public List<Membresia> getListMembresia() {
         return listMembresia;
     }
 
-    public void setListMembresia(List<Membresia> listMembresia) {
-        this.listMembresia = listMembresia;
-    }
-
     public List<Entrenadores> getListEntrenadores() {
         return listEntrenadores;
-    }
-
-    public void setListEntrenadores(List<Entrenadores> listEntrenadores) {
-        this.listEntrenadores = listEntrenadores;
     }
 
     public TipoDeEstado getTipoDeEstado() {
         return tipoDeEstado;
     }
 
+    public void setListUsuario(List<Usuario> listUsuario) {
+        this.listUsuario = listUsuario;
+    }
+
+    public void setListClases(List<Clases> listClases) {
+        this.listClases = listClases;
+    }
+
+    public void setListActividadDeportiva(List<ActividadDeportiva> listActividadDeportiva) {
+        this.listActividadDeportiva = listActividadDeportiva;
+    }
+
+    public void setListMembresia(List<Membresia> listMembresia) {
+        this.listMembresia = listMembresia;
+    }
+
+    public void setListEntrenadores(List<Entrenadores> listEntrenadores) {
+        this.listEntrenadores = listEntrenadores;
+    }
+
     public void setTipoDeEstado(TipoDeEstado tipoDeEstado) {
         this.tipoDeEstado = tipoDeEstado;
     }
 
-    @Override
-    public String toString() {
-        return "Gymuqfit{" +
-                "nombre='" + nombre + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telefonoOficina=" + telefonoOficina +
-                ", codigo=" + codigo +
-                ", horarioInicioEnLaMañana=" + horarioInicioEnLaMañana +
-                ", horarioCierreEnLaMañana=" + horarioCierreEnLaMañana +
-                ", horarioInicioEnLaTarde=" + horarioInicioEnLaTarde +
-                ", horarioCierreEnLaNoche=" + horarioCierreEnLaNoche +
-                ", listUsuario=" + listUsuario +
-                ", listClases=" + listClases +
-                ", listActividadDeportiva=" + listActividadDeportiva +
-                ", listMembresia=" + listMembresia +
-                ", listEntrenadores=" + listEntrenadores +
-                ", tipoDeEstado=" + tipoDeEstado +
-                '}';
-    }
 
-    public void regristrarUsuario(Usuario usuario){
+
+
+
+    public  void  regristrarUsuario(Usuario usuario){
         listUsuario.add(usuario);
     }
 
