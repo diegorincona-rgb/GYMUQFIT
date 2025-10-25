@@ -22,11 +22,14 @@ public abstract class Usuario {
     //ASOCIASION
 
     private List<ActividadDeportiva> listActividadDeportivaUsuario;
+    private List<Membresia>listMembresiaDeUsuarios;
+    private List<Clases>listClasesDeUsuario;
+    private Entrenadores entrenadores;
 
 
 
 
-public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza) {
+public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza,Entrenadores entrenadores) {
     this.nombres=nombres;
     this.apellidos=apellidos;
     this.identificacion=identificacion;
@@ -36,7 +39,10 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
     this.edad=edad;
     this.fechaNacimiento=fechaNacimiento;
     this.rutinasDeFuerza=rutinasDeFuerza;
+    this.entrenadores=entrenadores;
     this.listActividadDeportivaUsuario=new ArrayList<>();
+    this.listMembresiaDeUsuarios=new ArrayList<>();
+    this.listClasesDeUsuario=new ArrayList<>();
 
 
     }
@@ -126,6 +132,30 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
         this.rutinasDeFuerza = rutinasDeFuerza;
     }
 
+    public List<Membresia> getListMembresiaDeUsuarios() {
+        return listMembresiaDeUsuarios;
+    }
+
+    public void setListMembresiaDeUsuarios(List<Membresia> listMembresiaDeUsuarios) {
+        this.listMembresiaDeUsuarios = listMembresiaDeUsuarios;
+    }
+
+    public List<Clases> getListClasesDeUsuario() {
+        return listClasesDeUsuario;
+    }
+
+    public void setListClasesDeUsuario(List<Clases> listClasesDeUsuario) {
+        this.listClasesDeUsuario = listClasesDeUsuario;
+    }
+
+    public Entrenadores getEntrenadores() {
+        return entrenadores;
+    }
+
+    public void setEntrenadores(Entrenadores entrenadores) {
+        this.entrenadores = entrenadores;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -139,9 +169,11 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", rutinasDeFuerza=" + rutinasDeFuerza +
                 ", listActividadDeportivaUsuario=" + listActividadDeportivaUsuario +
+                ", listMembresiaDeUsuarios=" + listMembresiaDeUsuarios +
+                ", listClasesDeUsuario=" + listClasesDeUsuario +
+                ", entrenadores=" + entrenadores +
                 '}';
     }
-
 }
 
 

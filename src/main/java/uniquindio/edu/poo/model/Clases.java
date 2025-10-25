@@ -12,7 +12,11 @@ public class Clases {
     private LocalTime horaInicio;
     private LocalTime horaFinal;
 
-public Clases(String nombre, String apellido, int identificacion, LocalDate fechaInicio, LocalDate fechaFinal, LocalTime horaInicio, LocalTime horaFinal) {
+
+    //ASOCIASION
+    private Usuario usuario;
+
+public Clases(String nombre, String apellido, int identificacion, LocalDate fechaInicio, LocalDate fechaFinal, LocalTime horaInicio, LocalTime horaFinal, Usuario usuario) {
     this.nombre=nombre;
     this.apellido=apellido;
     this.identificacion=identificacion;
@@ -20,7 +24,7 @@ public Clases(String nombre, String apellido, int identificacion, LocalDate fech
     this.fechaFinal=fechaFinal;
     this.horaInicio=horaInicio;
     this.horaFinal=horaFinal;
-
+    this.usuario=usuario;
 }
 
     public String getNombre() {
@@ -78,6 +82,10 @@ public Clases(String nombre, String apellido, int identificacion, LocalDate fech
     public void setHoraFinal(LocalTime horaFinal) {
         this.horaFinal = horaFinal;
     }
+
+    public Usuario getUsuario(){return usuario;}
+
+    public void setUsuario(Usuario usuario){this.usuario=usuario;}
 
     @Override
     public String toString() {

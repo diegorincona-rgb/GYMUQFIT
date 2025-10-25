@@ -14,12 +14,12 @@ public class App {
     //HERENCIA USUARIO ESTUDIANTE
         Estudiante estudiante = new Estudiante("Diego","Rincon Alvarez", 1115189532, "diego.rincona@uqvirtual.edu.co", "CLL50", 318862555, 32,74, 1.68,LocalDate.of(1992,11,12),RutinasDeFuerza.BICEPS,"programacion","Ingenieria de Sistemas",2);
 
-        System.out.println("los datos del estudiante son:"+estudiante.getIdentificacion()+"la fecha de nacimiento es"+estudiante.getFechaNacimiento()+ "la masa corporal es de:"+estudiante.calcularMedidas());
+        System.out.println("los datos del estudiante son:"+estudiante.getNombres()+estudiante.getApellidos()+estudiante.getIdentificacion()+estudiante.getDireccion()+estudiante.getCorreo()+estudiante.getTelefono()+estudiante.getEdad()+estudiante.getFechaNacimiento()+estudiante.getRutinasDeFuerza()+estudiante.getCursoAcademico()+estudiante.getPrograma()+estudiante.getSemestre()+"la masa corporal deL estudiante es de:"+estudiante.calcularMedidas());
 
     //HERENCIA USUARIO TRABAJADOR UQ
         Trabajadoresuq trabajadoresuq = new Trabajadoresuq("Juan", "Jimenez", 289643, "Cerrito", "juan.j@uqvirtual.edu.co",32122222,20,LocalDate.of(2005,4,15),RutinasDeFuerza.PESO_MUERTO,"Aarea de sistemas seguridad de la informacion", 289643,"jefe seguridad de la informacion d ela universidad del quindio",87,1.90);
 
-        System.out.println("los datos del funcionario trabajador de la universidad son:"+estudiante.getIdentificacion()+"la fecha de nacimiento es"+trabajadoresuq.getFechaNacimiento()+ "la masa corporal es de:"+trabajadoresuq.calcularMedidas()+"" );
+        System.out.println("los datos del persomales del usuario quien labora en la Universidad del Quindio son:"+trabajadoresuq.getNombres()+trabajadoresuq.getApellidos()+trabajadoresuq.getIdentificacion()+trabajadoresuq.getDireccion()+trabajadoresuq.getCorreo()+trabajadoresuq.getTelefono()+trabajadoresuq.getEdad()+trabajadoresuq.getFechaNacimiento()+trabajadoresuq.getRutinasDeFuerza()+trabajadoresuq.getLugarDondeLabora()+trabajadoresuq.getCodigoServicio()+trabajadoresuq.getCargo()+"la masa corporal del Usuario es de:"+trabajadoresuq.calcularMedidas());
 
     //HERENCIA USUARIO EXTERNOS
         Externos externos = new Externos("Samuel", "alvarado", 108565432, "circasia","samuel.1@gmail.com", 321324321, 23,89,1.60, LocalDate.of(2002,12,26),RutinasDeFuerza.SENTADILLAS,"maestro de construccion","constructor obra negra","avenida centenario");
@@ -27,10 +27,10 @@ public class App {
         System.out.println("los datos del estudiante son:"+estudiante.getIdentificacion()+"la fecha de nacimiento es"+estudiante.getFechaNacimiento()+ "la masa corporal es de:"+estudiante.calcularMedidas());
 
     // INGRESAR MEMBRESIA
-        Membresia membresia = new Membresia("BASICA", "ACTIVO", 100.000, LocalDate.of(2025,8,25),LocalDate.of(2025,9,25));
+        Membresia membresia = new Membresia("BASICA", "ACTIVO", 100.000, LocalDate.of(2025,8,25),LocalDate.of(2025,9,25),estudiante);
 
     //INGRESAR CLASES
-        Clases clases = new Clases("Diego","Rincon Alvarez",1115189532, LocalDate.of(2025,8,25),LocalDate.of(2025,9,25),LocalTime.of(8,0),LocalTime.of(10,0));
+        Clases clases = new Clases("Diego","Rincon Alvarez",1115189532, LocalDate.of(2025,8,25),LocalDate.of(2025,9,25),LocalTime.of(8,0),LocalTime.of(10,0),estudiante);
 
     //INGRESAR ACTIVIDAD DEPORTIVA
         ActividadDeportiva actividadDeportiva = new ActividadDeportiva("Diego", "Rincon Alvarez", RutinasDeFuerza.BICEPS);

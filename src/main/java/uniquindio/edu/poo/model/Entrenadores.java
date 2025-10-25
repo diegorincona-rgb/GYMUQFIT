@@ -1,5 +1,8 @@
 package uniquindio.edu.poo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Entrenadores {
     private String nombre;
     private String Apellido;
@@ -11,6 +14,9 @@ public class Entrenadores {
 
 
 
+    private List<Usuario> listUsuariosParaEntrenadores;
+
+
 public Entrenadores(String nombre, String apellido,  String direccion, String cargo, String estado, int identificacion, int telefono) {
     this.nombre = nombre;
     this.Apellido = apellido;
@@ -19,6 +25,7 @@ public Entrenadores(String nombre, String apellido,  String direccion, String ca
     this.estado = estado;
     this.identificacion = identificacion;
     this.telefono = telefono;
+    this.listUsuariosParaEntrenadores = new ArrayList<>();
 
 }
 
@@ -78,6 +85,14 @@ public Entrenadores(String nombre, String apellido,  String direccion, String ca
         this.telefono = telefono;
     }
 
+    public List<Usuario> getListUsuariosParaEntrenadores() {
+        return listUsuariosParaEntrenadores;
+    }
+
+    public void setListUsuariosParaEntrenadores(List<Usuario> listUsuariosParaEntrenadores) {
+        this.listUsuariosParaEntrenadores = listUsuariosParaEntrenadores;
+    }
+
     @Override
     public String toString() {
         return "Entrenadores{" +
@@ -88,6 +103,7 @@ public Entrenadores(String nombre, String apellido,  String direccion, String ca
                 ", estado='" + estado + '\'' +
                 ", identificacion=" + identificacion +
                 ", telefono=" + telefono +
+                ", listUsuariosParaEntrenadores=" + listUsuariosParaEntrenadores +
                 '}';
     }
 }

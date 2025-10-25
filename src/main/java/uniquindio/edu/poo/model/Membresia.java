@@ -10,14 +10,30 @@ public class Membresia {
     private LocalDate fechadeInciioMembresia;
     private LocalDate fechaVencimientoMembresia;
 
-    public Membresia(String tipoMembresia, String estadoMembresia, double costoMembresia, LocalDate fehcaInicioMembresia, LocalDate fechaVencimientoMembresia  ) {
+    //ASOSIACION
+    private Usuario usuario;
+
+    public Membresia(String tipoMembresia, String estadoMembresia, double costoMembresia, LocalDate fehcaInicioMembresia, LocalDate fechaVencimientoMembresia, Usuario  usuario) {
         this.tipoMembresia = tipoMembresia;
         this.estadoMembresia=estadoMembresia;
         this.costoMembresia=costoMembresia;
         this.fechadeInciioMembresia=fehcaInicioMembresia;
         this.fechaVencimientoMembresia=fechaVencimientoMembresia;
+        this.usuario=usuario;
 
 
+    }
+
+    @Override
+    public String toString() {
+        return "Membresia{" +
+                "tipoMembresia='" + tipoMembresia + '\'' +
+                ", estadoMembresia='" + estadoMembresia + '\'' +
+                ", costoMembresia=" + costoMembresia +
+                ", fechadeInciioMembresia=" + fechadeInciioMembresia +
+                ", fechaVencimientoMembresia=" + fechaVencimientoMembresia +
+                ", usuario=" + usuario +
+                '}';
     }
 
     public String getTipoMembresia() {
@@ -60,14 +76,13 @@ public class Membresia {
         this.fechaVencimientoMembresia = fechaVencimientoMembresia;
     }
 
-    @Override
-    public String toString() {
-        return "Membresia{" +
-                "tipoMembresia='" + tipoMembresia + '\'' +
-                ", estadoMembresia='" + estadoMembresia + '\'' +
-                ", costoMembresia=" + costoMembresia +
-                ", fechadeInciioMembresia=" + fechadeInciioMembresia +
-                ", fechaVencimientoMembresia=" + fechaVencimientoMembresia +
-                '}';
+    public Usuario getUsuario() {
+        return usuario;
     }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+
 }
