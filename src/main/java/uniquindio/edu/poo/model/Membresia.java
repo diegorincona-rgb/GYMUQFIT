@@ -14,24 +14,28 @@ public class Membresia {
     //ASOSIACION
 
     private Usuario usuario;
-    private ActividadDeportiva actividadDeportiva;
     private Clases classes;
     private Entrenadores entrenadores;
+    private ActividadDeportiva actividadDeportiva;
 
-    public Membresia(String tipoMembresia, String estadoMembresia, double costoMembresia, LocalDate fehcaInicioMembresia, LocalDate fechaVencimientoMembresia, Usuario usuario, ActividadDeportiva actividadDeportiva, Clases classes, Entrenadores entrenadores) {
+
+    public Membresia(String tipoMembresia, String estadoMembresia, double costoMembresia, LocalDate fehcaInicioMembresia, LocalDate fechaVencimientoMembresia, Usuario usuario, Clases classes, Entrenadores entrenadores, ActividadDeportiva actividadDeportiva) {
         this.tipoMembresia = tipoMembresia;
         this.estadoMembresia=estadoMembresia;
         this.costoMembresia=costoMembresia;
         this.fechadeInicioMembresia=fehcaInicioMembresia;
         this.fechaVencimientoMembresia=fechaVencimientoMembresia;
         this.usuario=usuario;
-        this.actividadDeportiva=actividadDeportiva;
         this.classes=classes;
         this.entrenadores=entrenadores;
+        this.actividadDeportiva=actividadDeportiva;
+
 
 
 
     }
+
+
 
     @Override
     public String toString() {

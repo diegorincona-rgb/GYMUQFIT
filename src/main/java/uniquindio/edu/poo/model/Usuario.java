@@ -55,6 +55,8 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
 
 
 
+
+
     public String getNombres() {
         return nombres;
     }

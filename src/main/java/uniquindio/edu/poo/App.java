@@ -25,11 +25,11 @@ public class App {
 
 
     // INGRESAR MEMBRESIA
-        Membresia membresia = new Membresia("BASICA", "ACTIVO", 100.000, LocalDate.of(2025,8,25),LocalDate.of(2025,9,25),estudiante,trabajadoresuq,externos,);
+        Membresia membresia = new Membresia("BASICA", "ACTIVO", 100.000, LocalDate.of(2025,8,25),LocalDate.of(2025,9,25),usuario,clase,entrenadores,RutinasDeFuerza.BICEPS);
 
 
     //INGRESAR CLASES
-        Clases clases = new Clases("Diego", "Rincon Alvarez", 1115189532, LocalDate.of(2025, 8, 25), LocalDate.of(2025, 9, 25), LocalTime.of(8, 0), LocalTime.of(10, 0), new Usuario());
+        Clases clases = new Clases("Diego", "Rincon Alvarez", 1115189532, LocalDate.of(2025, 8, 25), LocalDate.of(2025, 9, 25), LocalTime.of(8, 0), LocalTime.of(10, 0), membresia.getUsuario(), entrenadores.getActividadDeportiva);
 
 
     //INGRESAR ACTIVIDAD DEPORTIVA
@@ -38,7 +38,7 @@ public class App {
 
 
     //INGRESAR ENTRENADORES
-        Entrenadores entrenadores = new Entrenadores("Juan", "peñas","Cerrito","Entrenador","Vacaciones", 59065432, 316666666);
+        Entrenadores entrenadores = new Entrenadores("Juan", "peñas","Cerrito","Entrenador","Vacaciones", 59065432, 316666666,"YOGA",listUsuario);
 
 
 

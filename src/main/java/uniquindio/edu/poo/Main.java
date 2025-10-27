@@ -15,60 +15,62 @@ public class Main {
 
     int opcion=-1;
 
-    while(opcion!=0){
+    while(opcion!=0) {
         System.out.print("\n - - - Bienvenido al Gym UQ FIT - - - ");
         System.out.print("\n ingrese al menu y seleccione la opcion requerida: ");
         System.out.print("1. registrar Usuario");
-        System.out.print("2. registrar Membresia");
-        System.out.print("3. registrar Clases");
-        System.out.print("4. registrar ActividadDeportiva");
-        System.out.print("5. verificar Informacion Usuario");
-        System.out.print("6. verificar Membresia");
-        System.out.print("7. verificar Clases");
-        System.out.print("8. agendar Clases");
-        System.out.print("9. agendar Usuarios");
-        System.out.print("10. agendar Entrenadores");
-        System.out.print("11. agendar ActividadDeportiva");
-        System.out.print("12. generar informacion");
+        System.out.print("2 registrar Entrenador");
+        System.out.print("3. registrar Membresia");
+        System.out.print("4. registrar Clases");
+        System.out.print("5. registrar ActividadDeportiva");
+        System.out.print("6. verificar Informacion Usuario");
+        System.out.print("7. verificar Membresia");
+        System.out.print("8. verificar Clases");
+        System.out.print("9. agendar Clases");
+        System.out.print("10 agendar Usuarios");
+        System.out.print("11. agendar Entrenadores");
+        System.out.print("12. agendar ActividadDeportiva");
+        System.out.print("13. generar informacion");
         System.out.print("0. Salir");
 
         System.out.print("\n Ingrese la opcion que desea registrar");
-        opcion=scanner.nextInt();
+        opcion = scanner.nextInt();
         scanner.nextLine().trim();
-        if(opcion==1){
-            registrarUsuario(Gymuqfit);
-        } else  if(opcion==2){
-            registrarMembresia(Gymuqfit);
-        } else if (opcion==3){
-            registrarClases(Gymuqfit);
+        if (opcion == 1) {
+            registrarUsuario(gymuqfit);
+        } else if (opcion==2){
+            registrarEntrenadores(gymuqfit);
+        } else  if(opcion==3){
+            registrarMembresia(gymuqfit);
         } else if (opcion==4){
-            registrarActividadDeportiva(Gymuqfit);
-        } else if (opcion==5){
-            verificarInformacionUsuario(Gymuqfit);
-        } else if (opcion==6) {
-            verificarMembresia(Gymuqfit);
+            registrarClases(gymuqfit);
+        } else if (opcion==5) {
+            registrarActividadDeportiva(gymuqfit);
+        } else if (opcion==6){
+            verificarInformacionUsuario(gymuqfit);
         } else if (opcion==7) {
-            verificarClases(Gymuqfit);
+            verificarMembresia(gymuqfit);
         } else if (opcion==8) {
-            agendarClases(Gymuqfit);
+            verificarClases(gymuqfit);
         } else if (opcion==9) {
-            agendarUsuario(Gymuqfit);
+            agendarClases(gymuqfit);
         } else if (opcion==10) {
-            agendarEntrenadores(Gymuqfit);
+            agendarUsuario(gymuqfit);
         } else if (opcion==11) {
-            agendarActividadDeportiva(Gymuqfit);
+            agendarEntrenadores(gymuqfit);
         } else if (opcion==12) {
-            generarInformacion(Gymuqfit);
+            agendarActividadDeportiva(gymuqfit);
+        } else if (opcion==13) {
+            generarInformacion(gymuqfit);
         } else if (opcion==0) {
             System.exit(0);
         } else {
             System.out.println("Opcion Incorrecta");
         }
-        }
-    scanner.close();
     }
-
-    public static  void registrarUsuario(Usuario usuario) {
+        scanner.close();
+    }
+    public static  void registrarUsuario(Gymuqfit gymuqfit) {
 
         System.out.println("Ingrese el nombre del usuario");
         String nombre = scanner.nextLine();
@@ -139,10 +141,55 @@ public class Main {
 
         Externos externos =new Externos(nombre,apellido,identificacion,direccion,correo,telefono,edad,peso,altura,fechaNacimiento,RutinasDeFuerza.PESO_MUERTO,cargo,ocupacion,empresaDondeLabora);
 
-        gym
+        gymuqfit.registarUsuario(estudiante,trabajadoresuq,externos);
+        System.out.println(" El usuario ha sido registrado con exito");
+
     }
 
-    public  static void registrarMembresia(Membresia membresia) {
+    public static void registrarEntrenadores(Gymuqfit gymuqfit){
+        System.out.println("Ingrese la nombre del Entrenador");
+        String nombre = scanner.nextLine();
+
+        System.out.println("Ingrese la apellido del Entrenador");
+        String apellido = scanner.nextLine();
+
+        System.out.println("Ingrese la identificacion del Entrenador");
+        int identificacion = scanner.nextInt();
+
+        System.out.println("Ingrese la telefono del Entrenador");
+        int telefono = scanner.nextInt();
+
+        System.out.println("Ingrese la direccion del Entrenador");
+        String direccion = scanner.nextLine();
+
+        System.out.println("Ingrese el cargo del Entrenador ");
+        String cargo =scanner.nextLine();
+
+        System.out.println("Ingrese el estado del Entrenador");
+        String estado = scanner.nextLine();
+
+        System.out.println("Ingrese la Especialidad del Entrenador");
+        String especialidad = scanner.nextLine();
+
+        System.out.println("Ingrese  lista de usuarios para las clases del entrenador");
+        String usuario  = scanner.nextLine();
+
+
+        Entrenadores entrenadores = new Entrenadores (nombre,apellido,identificacion,telefono,direccion,cargo,estado,especialidad,usuario);
+
+        Gymuqfit.registrarEntrenadores(entrenadores);
+        System.out.println("El Entrenador ha sido registrado con exito");
+
+        Gymuqfit.registrarEntrenadores(entrenadores);
+        System.out.println(entrenadores);
+
+        Gymuqfit.mostrarEntrenadores(String entrenadores);
+        System.out.println("Ingrese la codigo del entrenador");
+
+
+    }
+
+    public  static void registrarMembresia(Gymuqfit  gymuqfit) {
         System.out.println("Ingrese el tipo de membresia");
         String tipoMembresia = scanner.nextLine();
 
@@ -155,9 +202,33 @@ public class Main {
         System.out.println("Ingrese fecha de inicio de la membresia");
         String fechaInicioMembresia = scanner.nextLine();
 
-        System.out.println("Ingrese la identificacion del membresia");
+        System.out.println("Fecha de vencimiento de la membresia");
         int fechaVencimiemtoMembresia = scanner.nextInt();
 
+        System.out.println("Ingrese la la identificacion del Usuario para la vinculacion al tipo de membresia");
+        int identificacionUsuario = scanner.nextInt();
+        Usuario usuario=gymuqfit.buscarUsuarioPorIdentificacion(identificacionUsuario);
+        scanner.nextInt();
+
+        System.out.println("ingrese las clases a la que corresponde ");
+        String clases_Grupales = scanner.nextLine();
+        Clases clases=gymuqfit.vincularUsuariosClasesGrupales(Clases_Grupales);
+        scanner.nextLine();
+
+        System.out.println("el entrenador encargado de las clases es:");
+        String entrenadoresclases=scanner.nextLine();
+        Entrenadores entrenadores=new Entrenadores();
+
+
+
+        System.out.println("Ingrese el usuario a las clases del entrenador correspondiente");
+        String entrenadorYoga = scanner.nextLine();
+
+
+        Membresia membresia = new Membresia(tipoMembresia,estadoDeMembresia,costoMembresia,fechaInicioMembresia,fechaVencimiemtoMembresia,identificacionUsuario,clases,clases_Grupales, usuario,entrenadores);
+
+        Gymuqfit.registrarMembresia(membresia);
+        System.out.println(" Se Registro Usuario a la Correspondiente Membresia");
     }
 
     public static void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva) {

@@ -1,6 +1,5 @@
 
 package uniquindio.edu.poo.model;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class Gymuqfit {
     private List<Membresia> listMembresia;
 
     //AGREGACION
-    private List<Entrenadores> listEntrenadores;
+    private static List<Entrenadores> listEntrenadores;
 
     //INVOCACION ENUM
     private TipoDeEstado tipoDeEstado;
@@ -60,10 +59,146 @@ public class Gymuqfit {
         this.listEntrenadores = new ArrayList<>();
         this.tipoDeEstado=TipoDeEstado.ABIERTO;
 
+
     }
 
-    //METODOS GETTERS Y SETTERS
 
+
+    public void registarUsuario(Estudiante estudiante, Trabajadoresuq trabajadoresuq, Externos externos) {
+        listUsuario.add(estudiante);
+        listUsuario.add(trabajadoresuq);
+        listUsuario.add(externos);
+    }
+
+    public static void registrarEntrenadores(Entrenadores entrenadores) {
+        listEntrenadores.add(entrenadores);
+    }
+
+    public static boolean mostrarEntrenadores(String nombre) {
+        boolean resultado = true;
+        for (Entrenadores entrenador : listEntrenadores) {
+            if (entrenador.getNombre().equals(nombre)) {
+                resultado = false;
+                break;
+            }
+        }
+        return resultado;
+    }
+
+
+    public Usuario buscarUsuarioPorIdentificacion(int identificacion) {
+        Usuario encontrado = null;
+        for (Usuario usuario : listUsuario) {
+            if(usuario.getIdentificacion()==identificacion) {
+                encontrado = usuario;
+                break;
+            }
+        }
+        return encontrado;
+    }
+    public Membresia registrarMembresia(int identificacion) {
+        for(Membresia membresia : listMembresia) {
+            if(membresia.getUsuario().getIdentificacion()==identificacion) {
+
+            }
+        }
+    }
+
+
+    public static boolean  buscarMembresia(int identificacion) {
+        Usuario registrar = null;
+        for(Usuario usuario : listMembresia) {
+            if (usuario.getIdentificacion() == identificacion) {
+                registrar = usuario;
+                break;
+            }
+        }
+        return registrar != null;
+
+    }
+
+    public Membresia vincularUsuariosClasesGrupales(Clases_Grupales) {
+        Clases encontrado=null;
+        for(Clases clases : listClases) {
+            if(Clases.Clases_Grupales(YOGA,SPINING,ZUMBA,OTROS)==clases_Grupales) {
+                encontrado = clases;
+                break;
+            }
+        }
+        return encontrado;
+    }
+    public Clases agregarClasesYoga(int identificacion) {
+
+        }
+
+
+    public Entrenadores asignarEntrenadoresClasesGrupales(Clases_Grupales) {
+        Entrenadores encontrado = null;
+        for (Entrenadores entrenadores : listEntrenadores) {
+            if (clases_Grupales.YOGA == entrenadores) {
+                encontrado = entrenadores;
+                break;
+            }
+        }
+        return encontrado;
+    }
+
+
+
+    public void registrarClases(Clases clases){
+        listClases.add(clases);
+    }
+
+    public void registarMembresia(Membresia membresia){
+        listMembresia.add(membresia);
+    }
+
+    public void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva){
+        listActividadDeportiva.add(actividadDeportiva);
+    }
+
+    public void verificarUsuario(Usuario usuario){
+        listUsuario.add(usuario);
+    }
+
+
+    public void verificarClases(Clases clases){
+        listClases.add(clases);
+    }
+
+    public void verificarEntrenador(Entrenadores entrenadores){
+        listEntrenadores.add(entrenadores);
+    }
+
+    public void agendarUsuario(Usuario usuario){
+        listUsuario.add(usuario);
+    }
+    public void agendarActividadDeportiva(ActividadDeportiva  actividadDeportiva){
+        listActividadDeportiva.add(actividadDeportiva);
+    }
+
+    public void agendarClases(Clases clases){
+        listClases.add(clases);
+    }
+
+    public void agendarEntrenador(Entrenadores entrenadores){
+        listEntrenadores.add(entrenadores);
+    }
+    public void generarUsuario(Usuario usuario){
+        listUsuario.add(usuario);
+    }
+    public void eliminarUsuario(Usuario usuario){
+        listUsuario.add(usuario);
+    }
+
+
+
+
+
+
+
+
+    //METODOS GETTERS Y SETTERS
 
 
 
@@ -117,58 +252,7 @@ public class Gymuqfit {
 
 
 
-
-
-    public  void  regristrarUsuario(Usuario usuario){
-        listUsuario.add(usuario);
     }
-
-    public void registrarClases(Clases clases){
-        listClases.add(clases);
-    }
-
-    public void registarMembresia(Membresia membresia){
-        listMembresia.add(membresia);
-    }
-
-    public void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva){
-        listActividadDeportiva.add(actividadDeportiva);
-    }
-
-    public void verificarUsuario(Usuario usuario){
-        listUsuario.add(usuario);
-    }
-
-
-    public void verificarClases(Clases clases){
-        listClases.add(clases);
-    }
-
-    public void verificarEntrenador(Entrenadores entrenadores){
-        listEntrenadores.add(entrenadores);
-    }
-
-    public void agendarUsuario(Usuario usuario){
-        listUsuario.add(usuario);
-    }
-    public void agendarActividadDeportiva(ActividadDeportiva  actividadDeportiva){
-        listActividadDeportiva.add(actividadDeportiva);
-    }
-
-    public void agendarClases(Clases clases){
-        listClases.add(clases);
-    }
-
-    public void agendarEntrenador(Entrenadores entrenadores){
-        listEntrenadores.add(entrenadores);
-    }
-    public void generarUsuario(Usuario usuario){
-        listUsuario.add(usuario);
-    }
-    public void eliminarUsuario(Usuario usuario){
-        listUsuario.add(usuario);
-    }
-
 }
 
 

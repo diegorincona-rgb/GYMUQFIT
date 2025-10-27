@@ -6,11 +6,14 @@ import java.util.List;
 public class Entrenadores {
     private String nombre;
     private String Apellido;
+    private int identificacion;
+    private int telefono;
     private String direccion;
     private String cargo;
     private String estado;
-    private int identificacion;
-    private int telefono;
+    private String especialidad;
+
+
 
 
     //ASOCIACION
@@ -19,14 +22,15 @@ public class Entrenadores {
     private List<Clases> listClasesParaEntrenadores;
     private List<ActividadDeportiva> listEntrenadoresParaLasActividadesDeportivas;
 
-public Entrenadores(String nombre, String apellido,  String direccion, String cargo, String estado, int identificacion, int telefono, Usuario usuario) {
+public Entrenadores(String nombre, String apellido, int identificacion, int telefono, String direccion, String cargo, String estado, String especialidad, Usuario usuario) {
     this.nombre = nombre;
     this.Apellido = apellido;
+    this.identificacion = identificacion;
+    this.telefono = telefono;
     this.direccion = direccion;
     this.cargo = cargo;
     this.estado = estado;
-    this.identificacion = identificacion;
-    this.telefono = telefono;
+    this.especialidad = especialidad;
     this.usuario = usuario;
     this.listMembresiaParaEntrenadores = new ArrayList<>();
     this.listClasesParaEntrenadores = new ArrayList<>();
@@ -89,6 +93,14 @@ public Entrenadores(String nombre, String apellido,  String direccion, String ca
 
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
 
     public Usuario getUsuario() {
