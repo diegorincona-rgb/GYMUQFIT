@@ -1,5 +1,6 @@
 package uniquindio.edu.poo;
 import uniquindio.edu.poo.model.*;
+import uniquindio.edu.poo.model.TipoDeMaquinas;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,9 +10,11 @@ import java.util.Scanner;
 public class Main {
     private static final Scanner scanner=new Scanner(System.in);
 
+    Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalTime.of(5,0),LocalTime.of(12,0),LocalTime.of(15,0),LocalTime.of(22,0),TipoDeEstado.ABIERTO);
+
+
     public static void main(String[] args) {
 
-    Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalTime.of(5,0),LocalTime.of(12,0),LocalTime.of(15,0),LocalTime.of(22,0),TipoDeEstado.ABIERTO);
 
     int opcion=-1;
 
@@ -172,18 +175,18 @@ public class Main {
         String especialidad = scanner.nextLine();
 
         System.out.println("Ingrese  lista de usuarios para las clases del entrenador");
-        String usuario  = scanner.nextLine();
+        String estudiante  = scanner.nextLine();
 
 
-        Entrenadores entrenadores = new Entrenadores (nombre,apellido,identificacion,telefono,direccion,cargo,estado,especialidad,usuario);
+        Entrenadores entrenadores = new Entrenadores (nombre,apellido,identificacion,telefono,direccion,cargo,estado,especialidad,estudiante);
 
-        Gymuqfit.registrarEntrenadores(entrenadores);
+        gymuqfit.registrarEntrenadores(entrenadores);
         System.out.println("El Entrenador ha sido registrado con exito");
 
-        Gymuqfit.registrarEntrenadores(entrenadores);
+        gymuqfit.registrarEntrenadores(entrenadores);
         System.out.println(entrenadores);
 
-        Gymuqfit.mostrarEntrenadores(String entrenadores);
+        gymuqfit.getListEntrenadores();
         System.out.println("Ingrese la codigo del entrenador");
 
 
@@ -195,12 +198,15 @@ public class Main {
 
         System.out.println("Ingrese el estado de membresia");
         String estadoDeMembresia = scanner.nextLine();
+        //invocar el ENUM
 
         System.out.println("Ingrese el costo de membresia");
         String costoMembresia = scanner.nextLine();
+        //INVOCAR COSTO POR ENUM
 
         System.out.println("Ingrese fecha de inicio de la membresia");
         String fechaInicioMembresia = scanner.nextLine();
+
 
         System.out.println("Fecha de vencimiento de la membresia");
         int fechaVencimiemtoMembresia = scanner.nextInt();
@@ -220,14 +226,9 @@ public class Main {
         Entrenadores entrenadores=new Entrenadores();
 
 
+        Membresia membresia = new Membresia(tipoMembresia,estadoDeMembresia,);
 
-        System.out.println("Ingrese el usuario a las clases del entrenador correspondiente");
-        String entrenadorYoga = scanner.nextLine();
-
-
-        Membresia membresia = new Membresia(tipoMembresia,estadoDeMembresia,costoMembresia,fechaInicioMembresia,fechaVencimiemtoMembresia,identificacionUsuario,clases,clases_Grupales, usuario,entrenadores);
-
-        Gymuqfit.registrarMembresia(membresia);
+        gymuqfit.registrarMembresia(membresia);
         System.out.println(" Se Registro Usuario a la Correspondiente Membresia");
     }
 
@@ -445,13 +446,30 @@ public class Main {
     }
 
 
-    public static void TipoDeEstado(String mensaje) {
-            TipoDeEstado estado = TipoDeEstado.ABIERTO;
-            String tipoDeEstado = scanner.nextLine();
+    public void estadoDelGym() {
+        TipoDeEstado estado = TipoDeEstado.ABIERTO;
+        System.out.println("El estado del gym es: "+ estado);
             System.out.println("Tipo de Estado:" + estado);
             System.out.println("Mensaje:" + estado.getMensaje());
             System.out.println("Disponible:" + estado.isDisponible());
         }
 
+    public void TipoEstadoDeMaquina(String Mensaje) {
+        TipoDeMaquinas maquinas=TipoDeMaquinas.CAMINADORA;
+        System.out.println("Tipo de Maquina:" + maquinas);
+        System.out.println("Mensaje:" + maquinas.getMensaje());
+        System.out.println("disponible"+ maquinas.isDisponible());
+    }
+    public void estadoDeEntrenadores(String Mensaje) {
+        EstadoDeEntrenadores laborando=EstadoDeEntrenadores.LABORANDO;
+        System.out.println("El Estado del Entrenador es:" + laborando);
+        System.out.println("Mensaje:" + laborando.getMensaje());
+        System.out.println("disponible"+laborando.isDisponible());
+    }
+    public void rutinasDeFuerza(String Mensaje) {
+        RutinasDeFuerza rutina = RutinasDeFuerza.BICEPS;
+        System.out.println("El entrenamiento es:" + rutina);
+        System.out.println("Mensaje:" +rutina.getRutina());
+    }
 
 }

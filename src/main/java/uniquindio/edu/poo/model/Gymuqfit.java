@@ -31,18 +31,19 @@ public class Gymuqfit {
 
     /**
      * Cosntructor de la clase GymUQFIT  (Universidad del Quindio).
-     * @param nombre del GymUQFIT
-     * @param direccion del GymUQFIT
-     * @param telefonoOficina del GymUQFIT
-     * @param codigo del GymUQFIT
+     *
+     * @param nombre                  del GymUQFIT
+     * @param direccion               del GymUQFIT
+     * @param telefonoOficina         del GymUQFIT
+     * @param codigo                  del GymUQFIT
      * @param horarioInicioEnLaMañana del GymUQFIT
      * @param horarioCierreEnLaMañana del GymUQFIT
-     * @param horarioInicioEnLaTarde del GymUQFIT
-     * @param horarioCierreEnLaNoche del GymUQFIT
-     * @param tipoDeEstado del GymUQFIT
+     * @param horarioInicioEnLaTarde  del GymUQFIT
+     * @param horarioCierreEnLaNoche  del GymUQFIT
+     * @param tipoDeEstado            del GymUQFIT
      */
 
-    public Gymuqfit(String nombre, String direccion, int telefonoOficina, int codigo, LocalTime horarioInicioEnLaMañana, LocalTime horarioCierreEnLaMañana,LocalTime horarioInicioEnLaTarde, LocalTime horarioCierreEnLaNoche, TipoDeEstado tipoDeEstado) {
+    public Gymuqfit(String nombre, String direccion, int telefonoOficina, int codigo, LocalTime horarioInicioEnLaMañana, LocalTime horarioCierreEnLaMañana, LocalTime horarioInicioEnLaTarde, LocalTime horarioCierreEnLaNoche, TipoDeEstado tipoDeEstado) {
 
         this.nombre = nombre;
         this.direccion = direccion;
@@ -50,19 +51,17 @@ public class Gymuqfit {
         this.codigo = codigo;
         this.horarioInicioEnLaMañana = horarioInicioEnLaMañana;
         this.horarioCierreEnLaMañana = horarioCierreEnLaMañana;
-        this.horarioInicioEnLaTarde=horarioInicioEnLaTarde;
-        this.horarioCierreEnLaNoche=horarioCierreEnLaNoche;
+        this.horarioInicioEnLaTarde = horarioInicioEnLaTarde;
+        this.horarioCierreEnLaNoche = horarioCierreEnLaNoche;
         this.listUsuario = new ArrayList<>();
         this.listClases = new ArrayList<>();
         this.listActividadDeportiva = new ArrayList<>();
         this.listMembresia = new ArrayList<>();
         this.listEntrenadores = new ArrayList<>();
-        this.tipoDeEstado=TipoDeEstado.ABIERTO;
+        this.tipoDeEstado = TipoDeEstado.ABIERTO;
 
 
     }
-
-
 
     public void registarUsuario(Estudiante estudiante, Trabajadoresuq trabajadoresuq, Externos externos) {
         listUsuario.add(estudiante);
@@ -70,11 +69,11 @@ public class Gymuqfit {
         listUsuario.add(externos);
     }
 
-    public static void registrarEntrenadores(Entrenadores entrenadores) {
+    public void registrarEntrenadores(Entrenadores entrenadores) {
         listEntrenadores.add(entrenadores);
     }
 
-    public static boolean mostrarEntrenadores(String nombre) {
+    public boolean mostrarEntrenadores() {
         boolean resultado = true;
         for (Entrenadores entrenador : listEntrenadores) {
             if (entrenador.getNombre().equals(nombre)) {
@@ -89,27 +88,29 @@ public class Gymuqfit {
     public Usuario buscarUsuarioPorIdentificacion(int identificacion) {
         Usuario encontrado = null;
         for (Usuario usuario : listUsuario) {
-            if(usuario.getIdentificacion()==identificacion) {
+            if (usuario.getIdentificacion() == identificacion) {
                 encontrado = usuario;
                 break;
             }
         }
         return encontrado;
     }
+
     public Membresia registrarMembresia(int identificacion) {
-        for(Membresia membresia : listMembresia) {
-            if(membresia.getUsuario().getIdentificacion()==identificacion) {
+        for (Membresia membresia : listMembresia) {
+            if (membresia.getUsuario().getIdentificacion() == identificacion) {
 
             }
         }
+        return listMembresia.get(identificacion);
     }
 
 
-    public static boolean  buscarMembresia(int identificacion) {
-        Usuario registrar = null;
-        for(Usuario usuario : listMembresia) {
-            if (usuario.getIdentificacion() == identificacion) {
-                registrar = usuario;
+    public boolean buscarMembresia(int identificacion) {
+        Usuario registrar = true;
+        for (Membresia usuario : listMembresia) {
+            if (identificacion == usuario.getUsuario()) {
+                registrar = false;
                 break;
             }
         }
@@ -117,19 +118,26 @@ public class Gymuqfit {
 
     }
 
+    public boolean estadoDelGym(String tipoDeEstado) {
+        TipoDeMaquinas estado = true;
+        for(TipoDeEstado estado )
+
+    }
+
     public Membresia vincularUsuariosClasesGrupales(Clases_Grupales) {
-        Clases encontrado=null;
-        for(Clases clases : listClases) {
-            if(Clases.Clases_Grupales(YOGA,SPINING,ZUMBA,OTROS)==clases_Grupales) {
+        Clases encontrado = null;
+        for (Clases clases : listClases) {
+            if (Clases.Clases_Grupales(YOGA, SPINING, ZUMBA, OTROS) == clases_Grupales) {
                 encontrado = clases;
                 break;
             }
         }
         return encontrado;
     }
+
     public Clases agregarClasesYoga(int identificacion) {
 
-        }
+    }
 
 
     public Entrenadores asignarEntrenadoresClasesGrupales(Clases_Grupales) {
@@ -144,62 +152,64 @@ public class Gymuqfit {
     }
 
 
-
-    public void registrarClases(Clases clases){
+    public void registrarClases(Clases clases) {
         listClases.add(clases);
     }
 
-    public void registarMembresia(Membresia membresia){
+    public void registarMembresia(Membresia membresia) {
         listMembresia.add(membresia);
     }
 
-    public void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva){
+    public void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
         listActividadDeportiva.add(actividadDeportiva);
     }
 
-    public void verificarUsuario(Usuario usuario){
+    public void verificarUsuario(Usuario usuario) {
         listUsuario.add(usuario);
     }
 
 
-    public void verificarClases(Clases clases){
+    public void verificarClases(Clases clases) {
         listClases.add(clases);
     }
 
-    public void verificarEntrenador(Entrenadores entrenadores){
+    public void verificarEntrenador(Entrenadores entrenadores) {
         listEntrenadores.add(entrenadores);
     }
 
-    public void agendarUsuario(Usuario usuario){
+    public void agendarUsuario(Usuario usuario) {
         listUsuario.add(usuario);
     }
-    public void agendarActividadDeportiva(ActividadDeportiva  actividadDeportiva){
+
+    public void agendarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
         listActividadDeportiva.add(actividadDeportiva);
     }
 
-    public void agendarClases(Clases clases){
+    public void agendarClases(Clases clases) {
         listClases.add(clases);
     }
 
-    public void agendarEntrenador(Entrenadores entrenadores){
+    public void agendarEntrenador(Entrenadores entrenadores) {
         listEntrenadores.add(entrenadores);
     }
-    public void generarUsuario(Usuario usuario){
+
+    public void generarUsuario(Usuario usuario) {
         listUsuario.add(usuario);
     }
-    public void eliminarUsuario(Usuario usuario){
+
+    public void eliminarUsuario(Usuario usuario) {
         listUsuario.add(usuario);
     }
 
+    public void TipoDeEstadoDeMaquina(ActividadDeportiva actividadDeportiva) {
+        ActividadDeportiva TipoDeMaquinas = null;
+        listActividadDeportiva.add(actividadDeportiva);
 
 
-
-
-
+    }
 
 
     //METODOS GETTERS Y SETTERS
-
 
 
     public List<Usuario> getListUsuario() {
@@ -251,9 +261,13 @@ public class Gymuqfit {
     }
 
 
+    //INVOCACION ESTADO ENUM
 
-    }
+
+
 }
+
+
 
 
 

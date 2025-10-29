@@ -2,7 +2,7 @@ package uniquindio.edu.poo.model;
 
 import java.time.LocalDate;
 
-public class Estudiante extends Usuario{
+public class Estudiante extends Usuario {
 
     private String cursoAcademico;
     private String programa;

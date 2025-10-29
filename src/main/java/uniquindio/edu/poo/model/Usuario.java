@@ -27,12 +27,12 @@ public abstract class Usuario {
 
     //ASICIASION  UNITARIA
 
-    private List<Entrenadores> listEntrenadoresDeUsuario;
+    private Entrenadores entrenadores;
     private List<Membresia> listMembresiaDeUsuarios;
 
 
 
-public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza) {
+public Usuario(String nombres,String apellidos,int identificacion,String direccion,String correo,int telefono,int edad, LocalDate fechaNacimiento, RutinasDeFuerza rutinasDeFuerza,Entrenadores entrenadores,List<Membresia> listMembresiaDeUsuarios) {
     this.nombres=nombres;
     this.apellidos=apellidos;
     this.identificacion=identificacion;
@@ -42,7 +42,7 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
     this.edad=edad;
     this.fechaNacimiento=fechaNacimiento;
     this.rutinasDeFuerza=rutinasDeFuerza;
-    this.listEntrenadoresDeUsuario=new ArrayList<>();
+    this.entrenadores=entrenadores;
     this.listActividadDeportivaUsuario=new ArrayList<>();
     this.listMembresiaDeUsuarios= new  ArrayList<>();
     this.listClasesDeUsuario=new ArrayList<>();
@@ -146,12 +146,12 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
         this.listClasesDeUsuario = listClasesDeUsuario;
     }
 
-    public List<Entrenadores> getListEntrenadoresDeUsuario() {
-        return listEntrenadoresDeUsuario;
+    public Entrenadores getEntrenadores() {
+        return entrenadores;
     }
 
-    public void setListEntrenadoresDeUsuario(List<Entrenadores> listEntrenadoresDeUsuario) {
-        this.listEntrenadoresDeUsuario = listEntrenadoresDeUsuario;
+    public void setEntrenadores(Entrenadores entrenadores) {
+        this.entrenadores = entrenadores;
     }
 
     public List<Membresia> getListMembresiaDeUsuarios() {

@@ -14,15 +14,17 @@ public class Entrenadores {
     private String especialidad;
 
 
+    // VINCULACION CON ENUM
+    private EstadoDeEntrenadores estadoDeEntrenadores;
 
 
     //ASOCIACION
-    private Usuario usuario;
+    private List<Usuario> listUsuarioPorEntrenador;
     private List<Membresia> listMembresiaParaEntrenadores;
     private List<Clases> listClasesParaEntrenadores;
     private List<ActividadDeportiva> listEntrenadoresParaLasActividadesDeportivas;
 
-public Entrenadores(String nombre, String apellido, int identificacion, int telefono, String direccion, String cargo, String estado, String especialidad, Usuario usuario) {
+public Entrenadores(String nombre, String apellido, int identificacion, int telefono, String direccion, String cargo, String estado, String especialidad, Usuario usuario,EstadoDeEntrenadores estadoDeEntrenadores) {
     this.nombre = nombre;
     this.Apellido = apellido;
     this.identificacion = identificacion;
@@ -31,13 +33,16 @@ public Entrenadores(String nombre, String apellido, int identificacion, int tele
     this.cargo = cargo;
     this.estado = estado;
     this.especialidad = especialidad;
-    this.usuario = usuario;
     this.listMembresiaParaEntrenadores = new ArrayList<>();
     this.listClasesParaEntrenadores = new ArrayList<>();
     this.listEntrenadoresParaLasActividadesDeportivas = new ArrayList<>();
+    this.estadoDeEntrenadores = estadoDeEntrenadores;
+    this.listUsuarioPorEntrenador = new ArrayList<>();
 
 
 }
+
+
 
     public String getNombre() {
         return nombre;
@@ -103,12 +108,13 @@ public Entrenadores(String nombre, String apellido, int identificacion, int tele
         this.especialidad = especialidad;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+
+    public List<Usuario> getListUsuarioPorEntrenador() {
+        return listUsuarioPorEntrenador;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setListUsuarioPorEntrenador(List<Usuario> listUsuarioPorEntrenador) {
+        this.listUsuarioPorEntrenador = listUsuarioPorEntrenador;
     }
 
     public List<Membresia> getListMembresiaParaEntrenadores() {
@@ -135,17 +141,26 @@ public Entrenadores(String nombre, String apellido, int identificacion, int tele
         this.listEntrenadoresParaLasActividadesDeportivas = listEntrenadoresParaLasActividadesDeportivas;
     }
 
+    public EstadoDeEntrenadores getEstadoDeEntrenadores() {
+        return estadoDeEntrenadores;
+    }
+
     @Override
     public String toString() {
         return "Entrenadores{" +
                 "nombre='" + nombre + '\'' +
                 ", Apellido='" + Apellido + '\'' +
+                ", identificacion=" + identificacion +
+                ", telefono=" + telefono +
                 ", direccion='" + direccion + '\'' +
                 ", cargo='" + cargo + '\'' +
                 ", estado='" + estado + '\'' +
-                ", identificacion=" + identificacion +
-                ", telefono=" + telefono +
-                ", usuario=" + usuario +
+                ", especialidad='" + especialidad + '\'' +
+                ", estadoDeEntrenadores=" + estadoDeEntrenadores +
+                ", listUsuarioPorEntrenador=" + listUsuarioPorEntrenador +
+                ", listMembresiaParaEntrenadores=" + listMembresiaParaEntrenadores +
+                ", listClasesParaEntrenadores=" + listClasesParaEntrenadores +
+                ", listEntrenadoresParaLasActividadesDeportivas=" + listEntrenadoresParaLasActividadesDeportivas +
                 '}';
     }
 }

@@ -9,13 +9,13 @@ public class ActividadDeportiva {
     private String apellido;
     private int identificacion;
     private int telefono;
-    private String actividadDeFuerza;
     private String actividadCardiovascular;
     private String maquinas;
-    private String descripcionEjercicios;
+
 
     //VINCULACION CON ENUM
     private RutinasDeFuerza rutinasDeFuerza;
+    private TipoDeMaquinas tipoDeMaquinas;
 
 
     //ASOCIACION
@@ -27,21 +27,20 @@ public class ActividadDeportiva {
 
 
 
-    public ActividadDeportiva(String nombre, String apellido,int identificacion, int telefono, String actividadDeFuerza, String actividadCardiovascular, String maquinas, String descripcionEjercicios,RutinasDeFuerza rutinasDeFuerza ,Usuario usuario, Entrenadores entrenadores) {
+    public ActividadDeportiva(String nombre, String apellido,int identificacion, int telefono,RutinasDeFuerza rutinasDeFuerza, TipoDeMaquinas tipoDeMaquinas, Entrenadores entrenadores, TipoDeMaquinas tipoDeMaquinas) {
 
     this.nombre=nombre;
     this.apellido=apellido;
     this.identificacion=identificacion;
     this.telefono=telefono;
-    this.actividadDeFuerza=actividadDeFuerza;
     this.actividadCardiovascular=actividadCardiovascular;
     this.maquinas=maquinas;
-    this.descripcionEjercicios=descripcionEjercicios;
     this.rutinasDeFuerza=rutinasDeFuerza;
     this.usuario=usuario;
     this.listMembresiaDeLaActividadDeportiva=new ArrayList<>();
     this.entrenadores=entrenadores;
     this.listClasesDeActividadDeportivasDeportivas=new ArrayList<>();
+    this.tipoDeMaquinas=tipoDeMaquinas;
 }
 
     public String getNombre() {
@@ -58,14 +57,6 @@ public class ActividadDeportiva {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getActividadDeFuerza() {
-        return actividadDeFuerza;
-    }
-
-    public void setActividadDeFuerza(String actividadDeFuerza) {
-        this.actividadDeFuerza = actividadDeFuerza;
     }
 
     public String getActividadCardiovascular() {
@@ -116,13 +107,6 @@ public class ActividadDeportiva {
         this.listMembresiaDeLaActividadDeportiva = listMembresiaDeLaActividadDeportiva;
     }
 
-    public String getDescripcionEjercicios() {
-        return descripcionEjercicios;
-    }
-
-    public void setDescripcionEjercicios(String descripcionEjercicios) {
-        this.descripcionEjercicios = descripcionEjercicios;
-    }
 
     public Usuario getTheusuario() {
         return usuario;
@@ -136,9 +120,6 @@ public class ActividadDeportiva {
         return rutinasDeFuerza;
     }
 
-    public void setRutinasDeFuerza(RutinasDeFuerza rutinasDeFuerza) {
-        this.rutinasDeFuerza = rutinasDeFuerza;
-    }
 
     public Entrenadores getEntrenadores() {
         return entrenadores;
@@ -156,23 +137,36 @@ public class ActividadDeportiva {
         this.listClasesDeActividadDeportivasDeportivas = listClasesDeActividadDeportivasDeportivas;
     }
 
+    public TipoDeMaquinas getTipoDeMaquinas() {
+        return tipoDeMaquinas;
+    }
+
+    public void setRutinasDeFuerza(RutinasDeFuerza rutinasDeFuerza) {
+        this.rutinasDeFuerza = rutinasDeFuerza;
+    }
+
+    public void setTipoDeMaquinas(TipoDeMaquinas tipoDeMaquinas) {
+        this.tipoDeMaquinas = tipoDeMaquinas;
+    }
+
     @Override
     public String toString() {
         return "ActividadDeportiva{" +
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
+                ", identificacion=" + identificacion +
+                ", telefono=" + telefono +
                 ", actividadDeFuerza='" + actividadDeFuerza + '\'' +
                 ", actividadCardiovascular='" + actividadCardiovascular + '\'' +
                 ", maquinas='" + maquinas + '\'' +
-                ", identificacion=" + identificacion +
-                ", telefono=" + telefono +
                 ", descripcionEjercicios='" + descripcionEjercicios + '\'' +
                 ", rutinasDeFuerza=" + rutinasDeFuerza +
-                ", theusuario=" + usuario +
+                ", tipoDeMaquinas=" + tipoDeMaquinas +
+                ", usuario=" + usuario +
+                ", entrenadores=" + entrenadores +
+                ", listMembresiaDeLaActividadDeportiva=" + listMembresiaDeLaActividadDeportiva +
+                ", listClasesDeActividadDeportivasDeportivas=" + listClasesDeActividadDeportivasDeportivas +
                 '}';
     }
-
-
-
 }
 

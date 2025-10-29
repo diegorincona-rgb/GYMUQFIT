@@ -11,23 +11,21 @@ public enum RutinasDeFuerza {
     BICEPS("la rutina que debe realizar es la siguiente"),
     ZANCADAS("la rutina que debe realizar es la siguiente");
 
-    private String mensaje;
+    private final String rutina;
 
-    public String getMensaje() {
-        return mensaje;
-    }
+    public String getRutina();{return rutina}
 
+    RutinasDeFuerza(String rutina) {
+        this.rutina=rutina;
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    RutinasDeFuerza(String mensaje) {
-        this.mensaje = mensaje;
 
     }
+
 
 
 }
+
+
+
 
 
