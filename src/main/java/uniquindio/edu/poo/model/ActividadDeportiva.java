@@ -33,8 +33,6 @@ public class ActividadDeportiva {
     this.apellido=apellido;
     this.identificacion=identificacion;
     this.telefono=telefono;
-    this.actividadCardiovascular=actividadCardiovascular;
-    this.maquinas=maquinas;
     this.rutinasDeFuerza=rutinasDeFuerza;
     this.usuario=usuario;
     this.listMembresiaDeLaActividadDeportiva=new ArrayList<>();

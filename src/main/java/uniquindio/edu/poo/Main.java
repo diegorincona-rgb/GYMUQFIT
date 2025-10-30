@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
     private static final Scanner scanner=new Scanner(System.in);
 
-    Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalTime.of(5,0),LocalTime.of(12,0),LocalTime.of(15,0),LocalTime.of(22,0),TipoDeEstado.ABIERTO);
+     Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalTime.of(5,0),LocalTime.of(12,0),LocalTime.of(15,0),LocalTime.of(22,0),TipoDeEstado.ABIERTO);
 
 
     public static void main(String[] args) {
@@ -174,11 +174,9 @@ public class Main {
         System.out.println("Ingrese la Especialidad del Entrenador");
         String especialidad = scanner.nextLine();
 
-        System.out.println("Ingrese  lista de usuarios para las clases del entrenador");
-        String estudiante  = scanner.nextLine();
 
-
-        Entrenadores entrenadores = new Entrenadores (nombre,apellido,identificacion,telefono,direccion,cargo,estado,especialidad,estudiante);
+        Entrenadores entrenadores = new Entrenadores (nombre,apellido,identificacion,telefono,direccion,cargo,estado,
+                especialidad,EstadoDeEntrenadores.LABORANDO);
 
         gymuqfit.registrarEntrenadores(entrenadores);
         System.out.println("El Entrenador ha sido registrado con exito");
@@ -226,7 +224,7 @@ public class Main {
         Entrenadores entrenadores=new Entrenadores();
 
 
-        Membresia membresia = new Membresia(tipoMembresia,estadoDeMembresia,);
+        Membresia membresia = new Membresia(tipoMembresia,estadoDeMembresia,costoMembresia,fechaInicioMembresia,fechaVencimiemtoMembresia,EstadoMembresia.ACTIVO,usuario,clases_Grupales,);
 
         gymuqfit.registrarMembresia(membresia);
         System.out.println(" Se Registro Usuario a la Correspondiente Membresia");
@@ -445,14 +443,24 @@ public class Main {
 
     }
 
+    //INVOCACIONES ENUM
 
-    public void estadoDelGym() {
-        TipoDeEstado estado = TipoDeEstado.ABIERTO;
-        System.out.println("El estado del gym es: "+ estado);
-            System.out.println("Tipo de Estado:" + estado);
-            System.out.println("Mensaje:" + estado.getMensaje());
-            System.out.println("Disponible:" + estado.isDisponible());
-        }
+
+
+    public void estadoDelGymuqfit() {
+        TipoDeEstado horaActual=TipoDeEstado.ABIERTO;
+        System.out.println("Estado del GymUqFit es: "+horaActual);
+        System.out.println(horaActual.toString());
+        System.out.println(horaActual.equals(TipoDeEstado.ABIERTO)+"el GymUqFit esta disponible"+ horaActual.isDisponible());
+    }
+
+    public void estadoDeMembresiaUsuarios(){
+        EstadoMembresia vinculado= EstadoMembresia.ACTIVO;
+        System.out.println("Estado del GymUqFit es: "+vinculado);
+        System.out.println("Mensaje"+vinculado.getDescripcionUsuario());
+
+    }
+
 
     public void TipoEstadoDeMaquina(String Mensaje) {
         TipoDeMaquinas maquinas=TipoDeMaquinas.CAMINADORA;
@@ -470,6 +478,13 @@ public class Main {
         RutinasDeFuerza rutina = RutinasDeFuerza.BICEPS;
         System.out.println("El entrenamiento es:" + rutina);
         System.out.println("Mensaje:" +rutina.getRutina());
+    }
+
+    public void costoMembresia(Membresia membresia) {
+        CostoMembresia registrado = CostoMembresia.MENSUAL;
+        System.out.println("El costo de membresia es: "+registrado);
+        System.out.println("registro:"+registrado.getRegistro());
+
     }
 
 }

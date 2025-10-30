@@ -43,7 +43,9 @@ public class Gymuqfit {
      * @param tipoDeEstado            del GymUQFIT
      */
 
-    public Gymuqfit(String nombre, String direccion, int telefonoOficina, int codigo, LocalTime horarioInicioEnLaMañana, LocalTime horarioCierreEnLaMañana, LocalTime horarioInicioEnLaTarde, LocalTime horarioCierreEnLaNoche, TipoDeEstado tipoDeEstado) {
+    public Gymuqfit(String nombre, String direccion, int telefonoOficina, int codigo, LocalTime horarioInicioEnLaMañana,
+                    LocalTime horarioCierreEnLaMañana, LocalTime horarioInicioEnLaTarde, LocalTime horarioCierreEnLaNoche,
+                    TipoDeEstado tipoDeEstado) {
 
         this.nombre = nombre;
         this.direccion = direccion;
@@ -63,28 +65,48 @@ public class Gymuqfit {
 
     }
 
+    //VINCULAR ENUM ESTADO DEL GYMUQFIT
+
+    /**
+     * Estado del GymUqFit
+     * @param horaActual Estado del GymUqFit
+     * @return horaActual
+     */
+
+
+    public String estadoDelGymuqfit(LocalTime horaActual) {
+        String mensaje;
+        if((horaActual.isAfter(LocalTime.of(5,0))&&horaActual.isAfter(LocalTime.of(12,0)))||
+                (horaActual.isAfter(LocalTime.of(15,0))&&horaActual.isAfter(LocalTime.of(22,0)))){
+            mensaje = "El GymUqFit se encuentra Abierto" + TipoDeEstado.ABIERTO.getMensaje();
+        } else if ((horaActual.isAfter(LocalTime.of(12,0))&&horaActual.isAfter(LocalTime.of(15,0)))||
+                (horaActual.isAfter(LocalTime.of(22,0))&&horaActual.isAfter(LocalTime.of(5,0)))) {
+            mensaje = "El GymUqFit se encuentra Cerrado de 10 de la noche hasta las 5 de la mañana del dia siguiente" +
+                    TipoDeEstado.CERRADO.getMensaje();
+        } else {
+            mensaje = "El GymUqFit se encuentra en Mantenimiento temporalmente";
+        }
+        return mensaje;
+    }
+
+    /**
+     * REGISTRAR USUARIOS AL GYMUQFIT
+     * @param estudiante Registrar Estudiante al GymUqFit
+     * @param trabajadoresuq Registrar TrabajadoresUq al GymUqFit
+     * @param externos Registrar Externos al GymUqFit
+     */
     public void registarUsuario(Estudiante estudiante, Trabajadoresuq trabajadoresuq, Externos externos) {
         listUsuario.add(estudiante);
         listUsuario.add(trabajadoresuq);
         listUsuario.add(externos);
     }
 
-    public void registrarEntrenadores(Entrenadores entrenadores) {
-        listEntrenadores.add(entrenadores);
-    }
 
-    public boolean mostrarEntrenadores() {
-        boolean resultado = true;
-        for (Entrenadores entrenador : listEntrenadores) {
-            if (entrenador.getNombre().equals(nombre)) {
-                resultado = false;
-                break;
-            }
-        }
-        return resultado;
-    }
-
-
+    /**
+     * Buscar Usuario por Identificacion
+     * @param identificacion Usuario
+     * @return encontrado
+     */
     public Usuario buscarUsuarioPorIdentificacion(int identificacion) {
         Usuario encontrado = null;
         for (Usuario usuario : listUsuario) {
@@ -96,15 +118,37 @@ public class Gymuqfit {
         return encontrado;
     }
 
-    public Membresia registrarMembresia(int identificacion) {
-        for (Membresia membresia : listMembresia) {
-            if (membresia.getUsuario().getIdentificacion() == identificacion) {
 
-            }
-        }
-        return listMembresia.get(identificacion);
+    /**
+     * Registrar Entrenadores al GymUqFit
+     * @param entrenadores registrados al GymUqFit
+     */
+    public void registrarEntrenadores(Entrenadores entrenadores) {
+        listEntrenadores.add(entrenadores);
     }
 
+
+    public Membresia registrarMembresia(Membresia membresia) {
+        listMembresia.add(membresia);
+    return membresia;
+    }
+
+    public void CostoMembresia(Membresia membresia ) {
+        listUsuario.add(membresia.getUsuario());
+
+    }
+
+
+    public boolean verificarEntrenadores() {
+        boolean resultado = true;
+        for (Entrenadores entrenador : listEntrenadores) {
+            if (entrenador.getNombre().equals(nombre)) {
+                resultado = false;
+                break;
+            }
+        }
+        return resultado;
+    }
 
     public boolean buscarMembresia(int identificacion) {
         Usuario registrar = true;
@@ -118,11 +162,7 @@ public class Gymuqfit {
 
     }
 
-    public boolean estadoDelGym(String tipoDeEstado) {
-        TipoDeMaquinas estado = true;
-        for(TipoDeEstado estado )
 
-    }
 
     public Membresia vincularUsuariosClasesGrupales(Clases_Grupales) {
         Clases encontrado = null;
@@ -259,6 +299,8 @@ public class Gymuqfit {
     public void setTipoDeEstado(TipoDeEstado tipoDeEstado) {
         this.tipoDeEstado = tipoDeEstado;
     }
+
+
 
 
     //INVOCACION ESTADO ENUM

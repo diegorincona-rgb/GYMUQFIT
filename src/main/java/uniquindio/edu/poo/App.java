@@ -38,8 +38,8 @@ public class App {
 
 
     // INGRESAR MEMBRESIA
-        Membresia membresia = new Membresia("BASICA", "ACTIVO", 100.000,
-                LocalDate.of(2025, 8,25),LocalDate.of(2025,9,25),
+        Membresia membresia = new Membresia("BASICA", "ACTIVO", LocalDate.of(2025,
+                8,25),LocalDate.of(2025,9,25), EstadoMembresia.ACTIVO,
                 estudiante,clases,entrenadores,RutinasDeFuerza.BICEPS);
 
 
@@ -85,7 +85,7 @@ public class App {
                 +estudiante.calcularMedidas());
 
         System.out.println("La membresia a la que se encuentra adscrito es la siguiente"+membresia.getTipoMembresia()
-                +membresia.getEstadoMembresia() +membresia.getCostoMembresia()+membresia.getFechadeInicioMembresia()
+                +membresia.getEstadoMembresia() +membresia.getFechadeInicioMembresia()
                 +membresia.getFechaVencimientoMembresia()+"Bienvenido al Gym UQ FIT");
 
         System.out.println("Bienvenido. Registra las clases en las que quieras participar"+clases.getNombre()
@@ -106,9 +106,13 @@ public class App {
         gymuqfit.getListUsuario().add(estudiante);
         gymuqfit.getListUsuario().add(trabajadoresuq);
         gymuqfit.getListUsuario().add(externos);
+        gymuqfit.getListUsuario().add(membresia.getUsuario());
 
-        //REGISTRAR MEMBRESIA AL GymUQFIT
+        //REGISTROS MEMBRESIA
         gymuqfit.getListMembresia().add(membresia);
+
+
+
 
         //REGISTRAR CLASES AL GymUQFIT
         gymuqfit.getListClases().add(clases);
@@ -119,10 +123,18 @@ public class App {
         //REGISTRAR ENTRENADORES AL GymUQFIT
         gymuqfit.getListEntrenadores().add(entrenadores);
 
+        //REGISTRAR MEMBRESIAS AL ENUM
+        gymuqfit.getListMembresia().add(membresia);
+
+        System.out.println("La Membresia adscrita es:"+ membresia.getCostoMembresia());
 
         //INVOCAR ENUM EN EL GYMUQFIT
-        gymuqfit.estadoDelGym(String.valueOf(TipoDeEstado.ABIERTO));
-        gymuqfit.estadoDelGym(String.valueOf(TipoDeEstado.CERRADO));
+        LocalTime horaActual = LocalTime.now();
+        System.out.println("La hora actual: "+horaActual+TipoDeEstado.ABIERTO);
+        System.out.println(gymuqfit.estadoDelGymuqfit(horaActual));
+
+
+
 
         //INVOCAR ENUM AL MAIN ACTIVIDAD DEPÓRTIVA
         System.out.println(actividadDeportiva.toString());

@@ -22,8 +22,11 @@ public class Clases {
     private List<Clases> listMembresiaParaLasClases;
     private List<ActividadDeportiva> listActividadDeportivasParaLasClases;
 
+    //INVOCACION ENUM
+    private Clases_Grupales clases_Grupales;
 
-public Clases(String nombre, String apellido, int identificacion, LocalDate fechaInicio, LocalDate fechaFinal, LocalTime horaInicio, LocalTime horaFinal, Usuario usuario,Entrenadores entrenadores) {
+
+public Clases(String nombre, String apellido, int identificacion, LocalDate fechaInicio, LocalDate fechaFinal, LocalTime horaInicio, LocalTime horaFinal, Usuario usuario,Entrenadores entrenadores, Clases_Grupales clases_Grupales) {
     this.nombre=nombre;
     this.apellido=apellido;
     this.identificacion=identificacion;
@@ -35,6 +38,7 @@ public Clases(String nombre, String apellido, int identificacion, LocalDate fech
     this.entrenadores=entrenadores;
     this.listMembresiaParaLasClases=new ArrayList<>();
     this.listActividadDeportivasParaLasClases=new ArrayList<>();
+    this.clases_Grupales=clases_Grupales;
 
 }
 
@@ -120,6 +124,14 @@ public Clases(String nombre, String apellido, int identificacion, LocalDate fech
 
     public void setListActividadDeportivasParaLasClases(List<ActividadDeportiva> listActividadDeportivasParaLasClases) {
         this.listActividadDeportivasParaLasClases = listActividadDeportivasParaLasClases;
+    }
+
+    public Clases_Grupales getClases_Grupales() {
+        return clases_Grupales;
+    }
+
+    public void setClases_Grupales(Clases_Grupales clases_Grupales) {
+        this.clases_Grupales = clases_Grupales;
     }
 
     @Override

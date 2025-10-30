@@ -24,7 +24,8 @@ public class Entrenadores {
     private List<Clases> listClasesParaEntrenadores;
     private List<ActividadDeportiva> listEntrenadoresParaLasActividadesDeportivas;
 
-public Entrenadores(String nombre, String apellido, int identificacion, int telefono, String direccion, String cargo, String estado, String especialidad, Usuario usuario,EstadoDeEntrenadores estadoDeEntrenadores) {
+public Entrenadores(String nombre, String apellido, int identificacion, int telefono, String direccion, String cargo,
+                    String estado, String especialidad, EstadoDeEntrenadores estadoDeEntrenadores) {
     this.nombre = nombre;
     this.Apellido = apellido;
     this.identificacion = identificacion;
