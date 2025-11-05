@@ -1,6 +1,6 @@
 package uniquindio.edu.poo.model;
 
-public enum CostoMembresia {
+public enum TipoMembresia {
     MENSUAL ("El pago a registrar es de ($100.000.oo) Cien Mil pesos Mensuales"),
     TRIMESTRAL ("El pago a registrar es de ($270.000.oo) Doscientos Setenta Mil pesos, tiene un descuento " +
             "por pago Trimestral"),
@@ -10,7 +10,7 @@ public enum CostoMembresia {
 
     public String getRegistro() {return registro;}
 
-    CostoMembresia(String registro) {
+    TipoMembresia(String registro) {
         this.registro = registro;
     }
 

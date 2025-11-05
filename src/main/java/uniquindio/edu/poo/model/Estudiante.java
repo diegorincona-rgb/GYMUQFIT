@@ -10,8 +10,8 @@ public class Estudiante extends Usuario {
     private double peso;
     private double altura;
 
-    public Estudiante(String nombre, String apellido, int identificacion, String direccion, String correo, int telefono, int edad, double peso, double altura, LocalDate fechaNacimiento,RutinasDeFuerza rutinasDeFuerza, String cursoAcademico, String programa, int semestre) {
-        super(nombre,apellido,identificacion, direccion,correo, telefono,edad,fechaNacimiento,rutinasDeFuerza);
+    public Estudiante(String nombre, String apellido, int identificacion, String direccion, String correo, int telefono, int edad, double peso, double altura, LocalDate fechaNacimiento,String cursoAcademico, String programa, int semestre, TipoMembresia tipoMembresia) {
+        super(nombre,apellido,identificacion, direccion,correo, telefono,edad,fechaNacimiento,tipoMembresia);
         this.cursoAcademico = cursoAcademico;
         this.programa = programa;
         this.semestre = semestre;

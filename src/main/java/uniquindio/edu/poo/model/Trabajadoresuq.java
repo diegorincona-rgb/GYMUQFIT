@@ -10,8 +10,8 @@ public class Trabajadoresuq extends Usuario {
     private double peso;
     private double altura;
 
-public Trabajadoresuq(String nombre, String apellido, int identificacion, String direccion, String correo, int telefono, int edad, LocalDate fechaNacimiento,RutinasDeFuerza rutinasDeFuerza,String lugarDondeLabora, int codigoServicio, String cargo, double peso, double altura) {
-    super(nombre,apellido,identificacion,direccion,correo,telefono,edad,fechaNacimiento,rutinasDeFuerza);
+public Trabajadoresuq(String nombre, String apellido, int identificacion, String direccion, String correo, int telefono, int edad, LocalDate fechaNacimiento,String lugarDondeLabora, int codigoServicio, String cargo, double peso, double altura, TipoMembresia tipoMembresia) {
+    super(nombre,apellido,identificacion,direccion,correo,telefono,edad,fechaNacimiento, tipoMembresia);
     this.lugarDondeLabora = lugarDondeLabora;
     this.codigoServicio = codigoServicio;
     this.cargo = cargo;

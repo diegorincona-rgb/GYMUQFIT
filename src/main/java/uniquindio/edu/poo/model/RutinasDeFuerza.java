@@ -13,7 +13,10 @@ public enum RutinasDeFuerza {
 
     private final String rutina;
 
-    public String getRutina();{return rutina}
+    public String getRutina() {
+        return null;
+    }
+
 
     RutinasDeFuerza(String rutina) {
         this.rutina=rutina;

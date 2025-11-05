@@ -12,8 +12,8 @@ public class Externos extends Usuario{
 
 
 
-public Externos(String nombre, String apellido, int identificacion, String direccion, String correo, int telefono, int edad, double peso, double altura, LocalDate fechaNacimiento,RutinasDeFuerza rutinasDeFuerza,String cargo,  String ocupacion, String EmpresaDondeLabora ){
-    super(nombre,apellido,identificacion, direccion,correo, telefono,edad,fechaNacimiento,rutinasDeFuerza,new Entrenadores());
+public Externos(String nombre, String apellido, int identificacion, String direccion, String correo, int telefono, int edad, double peso, double altura, LocalDate fechaNacimiento,String cargo,  String ocupacion, String EmpresaDondeLabora, TipoMembresia tipoMembresia ) {
+    super(nombre,apellido,identificacion, direccion,correo, telefono,edad,fechaNacimiento,tipoMembresia);
         this.cargo=cargo;
         this.ocupacion=ocupacion;
         this.empresaDondeLabora=EmpresaDondeLabora;

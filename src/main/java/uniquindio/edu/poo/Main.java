@@ -7,10 +7,15 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Scanner;
 
+import static uniquindio.edu.poo.model.TipoMembresia.*;
+import static uniquindio.edu.poo.model.EstadoMembresia.ACTIVO;
+import static uniquindio.edu.poo.model.EstadoMembresia.INACTIVO;
+import static uniquindio.edu.poo.model.NombreMembresia.*;
+
 public class Main {
     private static final Scanner scanner=new Scanner(System.in);
 
-     Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalTime.of(5,0),LocalTime.of(12,0),LocalTime.of(15,0),LocalTime.of(22,0),TipoDeEstado.ABIERTO);
+     static Gymuqfit gymuqfit = new Gymuqfit( "GYMUQFIT", "CLL 15 CRA 18 CENTRO", 318862555, 5556, LocalTime.of(5,0),LocalTime.of(12,0),LocalTime.of(15,0),LocalTime.of(22,0),TipoDeEstado.ABIERTO);
 
 
     public static void main(String[] args) {
@@ -40,32 +45,36 @@ public class Main {
         opcion = scanner.nextInt();
         scanner.nextLine().trim();
         if (opcion == 1) {
-            registrarUsuario(gymuqfit);
-        } else if (opcion==2){
+            registrarEstudiante(gymuqfit);
+        } else if (opcion == 2 ) {
+            registrarTrabajadoresuq(gymuqfit);
+        } else if (opcion == 3 ) {
+            registrarExternos(gymuqfit);
+        } else if (opcion==4 ){
             registrarEntrenadores(gymuqfit);
-        } else  if(opcion==3){
+        } else  if(opcion==5 ){
             registrarMembresia(gymuqfit);
-        } else if (opcion==4){
-            registrarClases(gymuqfit);
-        } else if (opcion==5) {
+        } else if (opcion==6 ){
+//            registrarClases(gymuqfit);
+        } else if (opcion==7 ) {
             registrarActividadDeportiva(gymuqfit);
-        } else if (opcion==6){
-            verificarInformacionUsuario(gymuqfit);
-        } else if (opcion==7) {
-            verificarMembresia(gymuqfit);
-        } else if (opcion==8) {
-            verificarClases(gymuqfit);
-        } else if (opcion==9) {
-            agendarClases(gymuqfit);
-        } else if (opcion==10) {
-            agendarUsuario(gymuqfit);
-        } else if (opcion==11) {
-            agendarEntrenadores(gymuqfit);
-        } else if (opcion==12) {
-            agendarActividadDeportiva(gymuqfit);
-        } else if (opcion==13) {
-            generarInformacion(gymuqfit);
-        } else if (opcion==0) {
+        } else if (opcion==8 ){
+ //           verificarInformacionUsuario(gymuqfit);
+        } else if (opcion==9 ) {
+  //          verificarMembresia(gymuqfit);
+        } else if (opcion==10 ) {
+  //          verificarClases(gymuqfit);
+        } else if (opcion==11 ) {
+  //          agendarClases(gymuqfit);
+        } else if (opcion==12 ) {
+   //         agendarUsuario(gymuqfit);
+        } else if (opcion==13 ) {
+   //         agendarEntrenadores(gymuqfit);
+        } else if (opcion==14 ) {
+   //         agendarActividadDeportiva(gymuqfit);
+        } else if (opcion==15 ) {
+   //         generarInformacion(gymuqfit);
+        } else if (opcion==0 ) {
             System.exit(0);
         } else {
             System.out.println("Opcion Incorrecta");
@@ -73,7 +82,145 @@ public class Main {
     }
         scanner.close();
     }
-    public static  void registrarUsuario(Gymuqfit gymuqfit) {
+
+    public static void registrarEstudiante(Gymuqfit gymuqfit) {
+
+        System.out.println("Ingrese el nombre del usuario");
+        String nombre = scanner.nextLine();
+
+        System.out.println("Ingrese la apellido del usuario");
+        String apellido = scanner.nextLine();
+
+        System.out.println("Ingrese la identificacion del usuario");
+        int identificacion = scanner.nextInt();
+
+        System.out.println("Ingrese la direccion del usuario");
+        String direccion = scanner.nextLine();
+
+        System.out.println("Ingrese la correo del usuario");
+        String correo = scanner.nextLine();
+
+        System.out.println("Ingrese la telefono del usuario");
+        int telefono = scanner.nextInt();
+
+        System.out.println("Ingrese la edad del usuario");
+        int edad = scanner.nextInt();
+
+        System.out.println("Ingrese la peso del usuario");
+        double peso = scanner.nextDouble();
+
+        System.out.println("Ingrese la altura del usuario");
+        double altura = scanner.nextDouble();
+
+        System.out.println("Ingrese el Año de nacimiento del usuario");
+        int anio = scanner.nextInt();
+
+        System.out.println("Ingrese el Mes de nacimiento del usuario");
+        int mes = scanner.nextInt();
+
+        System.out.println("Ingrese el Dia de nacimiento del usuario");
+        int dia = scanner.nextInt();
+
+        LocalDate fechaNacimiento = LocalDate.of(anio, mes, dia);
+        System.out.println("La fecha de Nacimiento del usuario" + fechaNacimiento);
+
+        System.out.println("ingrese el curso Academico que cursa");
+        String cursoAcademico = scanner.nextLine();
+
+        System.out.println("Ingrese el Programa Academico en el que se encuentra");
+        String programa = scanner.nextLine();
+
+        System.out.println("Ingrese el semestre en el que se encuentra");
+        int semestre = scanner.nextInt();
+
+        System.out.println("Ingrese el Tipo de Membresia");
+        String tipoMembresiaString = scanner.nextLine();
+        TipoMembresia tipoMembresia;
+        if(tipoMembresiaString == "TRIMESTARL") {
+            tipoMembresia =TRIMESTRAL;
+        } else if (tipoMembresiaString=="MENSUAL") {
+            tipoMembresia =MENSUAL;
+        }else {
+            tipoMembresia = ANUAL;
+        }
+
+
+        Estudiante estudiante = new Estudiante(nombre, apellido, identificacion, direccion, correo, telefono, edad, peso, altura, fechaNacimiento, cursoAcademico, programa, semestre, tipoMembresia);
+
+
+
+        gymuqfit.registarEstudiante(estudiante);
+        System.out.println(" El usuario ha sido registrado con exito");
+
+    }
+        public static void registrarTrabajadoresuq(Gymuqfit gymuqfit) {
+            System.out.println("Ingrese el nombre del usuario");
+            String nombre = scanner.nextLine();
+
+            System.out.println("Ingrese la apellido del usuario");
+            String apellido = scanner.nextLine();
+
+            System.out.println("Ingrese la identificacion del usuario");
+            int identificacion = scanner.nextInt();
+
+            System.out.println("Ingrese la direccion del usuario");
+            String direccion = scanner.nextLine();
+
+            System.out.println("Ingrese la correo del usuario");
+            String correo = scanner.nextLine();
+
+            System.out.println("Ingrese la telefono del usuario");
+            int telefono = scanner.nextInt();
+
+            System.out.println("Ingrese la edad del usuario");
+            int edad = scanner.nextInt();
+
+            System.out.println("Ingrese la peso del usuario");
+            double peso = scanner.nextDouble();
+
+            System.out.println("Ingrese la altura del usuario");
+            double altura = scanner.nextDouble();
+
+            System.out.println("Ingrese el Año de nacimiento del usuario");
+            int anio = scanner.nextInt();
+
+            System.out.println("Ingrese el Mes de nacimiento del usuario");
+            int mes = scanner.nextInt();
+
+            System.out.println("Ingrese el Dia de nacimiento del usuario");
+            int dia = scanner.nextInt();
+
+            LocalDate fechaNacimiento= LocalDate.of(anio,mes,dia);
+            System.out.println("La fecha de Nacimiento del usuario"+fechaNacimiento);
+
+            System.out.println("Ingrese el lugar donde labora");
+            String lugarDondeLabora = scanner.nextLine();
+
+            System.out.println("Ingrese el codigo de servicio asignado");
+            int codigoServicio = scanner.nextInt();
+
+            System.out.println("Ingrese el Cargo ");
+            String cargo = scanner.nextLine();
+
+            System.out.println("Ingrese el Tipo de Membresia");
+            String tipoMembresiaString = scanner.nextLine();
+            TipoMembresia tipoMembresia;
+            if(tipoMembresiaString == "TRIMESTARL") {
+                tipoMembresia =TRIMESTRAL;
+            } else if (tipoMembresiaString=="MENSUAL") {
+                tipoMembresia =MENSUAL;
+            }else {
+                tipoMembresia = ANUAL;
+            }
+
+            Trabajadoresuq trabajadoresuq = new Trabajadoresuq(nombre,apellido,identificacion,direccion,correo,telefono,edad,fechaNacimiento,lugarDondeLabora,codigoServicio,cargo,peso,altura, tipoMembresia);
+
+            gymuqfit.registarTrabajadoresuq(trabajadoresuq);
+            System.out.println(" El usuario ha sido registrado con exito");
+
+        }
+
+    public static void registrarExternos(Gymuqfit gymuqfit) {
 
         System.out.println("Ingrese el nombre del usuario");
         String nombre = scanner.nextLine();
@@ -114,22 +261,7 @@ public class Main {
         LocalDate fechaNacimiento= LocalDate.of(anio,mes,dia);
         System.out.println("La fecha de Nacimiento del usuario"+fechaNacimiento);
 
-        System.out.println("ingrese el curso Academico que cursa");
-        String cursoAcademico = scanner.nextLine();
-
-        System.out.println("Ingrese el Programa Academico en el que se encuentra");
-        String programa = scanner.nextLine();
-
-        System.out.println("Ingrese el semestre en el que se encuentra");
-        int semestre = scanner.nextInt();
-
-        System.out.println("Ingrese el lugar donde labora");
-        String lugarDondeLabora = scanner.nextLine();
-
-        System.out.println("Ingrese el codigo de servicio asignado");
-        int codigoServicio = scanner.nextInt();
-
-        System.out.println("Ingrese el Cargo ");
+        System.out.println("Ingrese el cargo del usuario");
         String cargo = scanner.nextLine();
 
         System.out.println("Ingrese la ocupacion del usuario");
@@ -138,18 +270,26 @@ public class Main {
         System.out.println("Ingrese la Empresa donde labora el usuario");
         String empresaDondeLabora = scanner.nextLine();
 
-        Estudiante estudiante =new Estudiante(nombre, apellido,identificacion,direccion,correo,telefono,edad,peso,altura,fechaNacimiento,RutinasDeFuerza.PESO_MUERTO,cursoAcademico,programa,semestre);
+        System.out.println("Ingrese el Tipo de Membresia");
+        String tipoMembresiaString = scanner.nextLine();
+        TipoMembresia tipoMembresia;
+        if(tipoMembresiaString == "TRIMESTARL") {
+            tipoMembresia =TRIMESTRAL;
+        } else if (tipoMembresiaString=="MENSUAL") {
+            tipoMembresia =MENSUAL;
+        }else {
+            tipoMembresia = ANUAL;
+        }
 
-        Trabajadoresuq trabajadoresuq = new Trabajadoresuq(nombre,apellido,identificacion,direccion,correo,telefono,edad,fechaNacimiento,RutinasDeFuerza.SENTADILLAS,lugarDondeLabora,codigoServicio,cargo,peso,altura);
+        Externos externos =new Externos(nombre,apellido,identificacion,direccion,correo,telefono,edad,peso,altura,fechaNacimiento,cargo, ocupacion, empresaDondeLabora, tipoMembresia);
 
-        Externos externos =new Externos(nombre,apellido,identificacion,direccion,correo,telefono,edad,peso,altura,fechaNacimiento,RutinasDeFuerza.PESO_MUERTO,cargo,ocupacion,empresaDondeLabora);
-
-        gymuqfit.registarUsuario(estudiante,trabajadoresuq,externos);
+        gymuqfit.registrarExternos(externos);
         System.out.println(" El usuario ha sido registrado con exito");
 
     }
 
-    public static void registrarEntrenadores(Gymuqfit gymuqfit){
+
+    public static void registrarEntrenadores(Gymuqfit gymuqfit) {
         System.out.println("Ingrese la nombre del Entrenador");
         String nombre = scanner.nextLine();
 
@@ -166,7 +306,7 @@ public class Main {
         String direccion = scanner.nextLine();
 
         System.out.println("Ingrese el cargo del Entrenador ");
-        String cargo =scanner.nextLine();
+        String cargo = scanner.nextLine();
 
         System.out.println("Ingrese el estado del Entrenador");
         String estado = scanner.nextLine();
@@ -175,105 +315,139 @@ public class Main {
         String especialidad = scanner.nextLine();
 
 
-        Entrenadores entrenadores = new Entrenadores (nombre,apellido,identificacion,telefono,direccion,cargo,estado,
-                especialidad,EstadoDeEntrenadores.LABORANDO);
+        Entrenadores entrenadores = new Entrenadores(nombre, apellido, identificacion, telefono, direccion, cargo, estado,
+                especialidad, EstadoDeEntrenadores.LABORANDO);
 
         gymuqfit.registrarEntrenadores(entrenadores);
         System.out.println("El Entrenador ha sido registrado con exito");
 
-        gymuqfit.registrarEntrenadores(entrenadores);
-        System.out.println(entrenadores);
-
-        gymuqfit.getListEntrenadores();
-        System.out.println("Ingrese la codigo del entrenador");
-
-
     }
+
 
     public  static void registrarMembresia(Gymuqfit  gymuqfit) {
-        System.out.println("Ingrese el tipo de membresia");
-        String tipoMembresia = scanner.nextLine();
+
+        System.out.println("Ingrese el nombre de la membresia");
+        String nombreMembresiaString = scanner.nextLine();
+        NombreMembresia nombreMembresia;
+        if(nombreMembresiaString == "PREMIUM") {
+            nombreMembresia = PREMIUM;
+        }else if(nombreMembresiaString == "VIP") {
+            nombreMembresia =VIP;
+        }else {
+            nombreMembresia =BASICO;
+        }
+
 
         System.out.println("Ingrese el estado de membresia");
-        String estadoDeMembresia = scanner.nextLine();
-        //invocar el ENUM
+        String estadoDeMembresiaUsuario = scanner.nextLine();
+        EstadoMembresia estadoMembresia;
+        if(estadoDeMembresiaUsuario == "ACTIVO") {
+            estadoMembresia=ACTIVO;
+        } else {
+            estadoMembresia= INACTIVO;
+        }
+
 
         System.out.println("Ingrese el costo de membresia");
-        String costoMembresia = scanner.nextLine();
-        //INVOCAR COSTO POR ENUM
-
-        System.out.println("Ingrese fecha de inicio de la membresia");
-        String fechaInicioMembresia = scanner.nextLine();
-
-
-        System.out.println("Fecha de vencimiento de la membresia");
-        int fechaVencimiemtoMembresia = scanner.nextInt();
-
-        System.out.println("Ingrese la la identificacion del Usuario para la vinculacion al tipo de membresia");
-        int identificacionUsuario = scanner.nextInt();
-        Usuario usuario=gymuqfit.buscarUsuarioPorIdentificacion(identificacionUsuario);
-        scanner.nextInt();
-
-        System.out.println("ingrese las clases a la que corresponde ");
-        String clases_Grupales = scanner.nextLine();
-        Clases clases=gymuqfit.vincularUsuariosClasesGrupales(Clases_Grupales);
-        scanner.nextLine();
-
-        System.out.println("el entrenador encargado de las clases es:");
-        String entrenadoresclases=scanner.nextLine();
-        Entrenadores entrenadores=new Entrenadores();
+        String tipoMembresiaString = scanner.nextLine();
+        TipoMembresia tipoMembresia;
+        if(tipoMembresiaString == "TRIMESTARL") {
+            tipoMembresia =TRIMESTRAL;
+        } else if (tipoMembresiaString=="MENSUAL") {
+            tipoMembresia =MENSUAL;
+        }else {
+            tipoMembresia = ANUAL;
+        }
 
 
-        Membresia membresia = new Membresia(tipoMembresia,estadoDeMembresia,costoMembresia,fechaInicioMembresia,fechaVencimiemtoMembresia,EstadoMembresia.ACTIVO,usuario,clases_Grupales,);
+        System.out.println("Ingrese el dia de vinculacion a la membresia");
+        int diaVinculacion = scanner.nextInt();
+
+        System.out.println("Ingrese el mes de vinculacion a la membresia");
+        int mesVinculacion = scanner.nextInt();
+
+        System.out.println("Ingrese el año de la vinculacion a la membresia");
+        int anioVinculacion = scanner.nextInt();
+
+        LocalDate fechaInicioMembresia = LocalDate.of(diaVinculacion,mesVinculacion,anioVinculacion);
+        System.out.println("Ingrese fecha de inicio de la membresia"+fechaInicioMembresia);
+
+
+        LocalDate fechaVencimiento = fechaInicioMembresia;
+        if(tipoMembresiaString=="MENSUAL") {
+            fechaVencimiento=fechaVencimiento.plusMonths(1);
+        }else if(tipoMembresiaString=="TRIMESTARL") {
+            fechaVencimiento=fechaVencimiento.plusMonths(3);
+        }else {
+            fechaVencimiento=fechaVencimiento.plusYears(1);
+        }
+
+
+        Membresia membresia = new Membresia(fechaInicioMembresia,fechaVencimiento,estadoMembresia, tipoMembresia,nombreMembresia);
 
         gymuqfit.registrarMembresia(membresia);
-        System.out.println(" Se Registro Usuario a la Correspondiente Membresia");
+        System.out.println(" Se Registro el Usuario a la Correspondiente Membresia");
     }
 
-    public static void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
+
+    public static void registrarActividadDeportiva(Gymuqfit gymuqfit) {
         System.out.println("Ingrese el nombre de la actividad deportiva");
         String nombreActividadDeportiva = scanner.nextLine();
 
-        System.out.println("Ingrese el apellido de la actividad deportiva");
-        String apellidoActividadDeportiva = scanner.nextLine();
+       ActividadDeportiva actividadDeportiva = new ActividadDeportiva(nombreActividadDeportiva);
 
-        System.out.println("Ingrese la identificacion del usuario para la actividad deportiva");
-        int identificacionActividadDeportiva = scanner.nextInt();
+       System.out.println("el usuario Utilizara los Diferentes tipos de Maquinas asi: ");
 
-        System.out.println("Ingrese los ejercicios de Fuerza de la actividad deportiva");
-        String fuerzaActividadDeportiva = scanner.nextLine();
+       for(TipoDeMaquinas tipo : TipoDeMaquinas.values()) {
 
-        System.out.println("Ingrese los ejercicios cardiovasculares de la actividad deportiva");
-        String cardiovascularesActividadDeportiva = scanner.nextLine();
+           System.out.println(tipo.name());
+       }
 
-        System.out.println("Ingrese los tipos de maquinas para la actividad deportiva");
-        String maquinaActividadDeportiva = scanner.nextLine();
-
-        System.out.println("Ingrese el telefono del usuario para la actividad deportiva");
-        int telefonoActividadDeportiva = scanner.nextInt();
+       gymuqfit.registrarActividadDeportiva(actividadDeportiva);
+       System.out.println("se registro actividad deportiva");
     }
 
-    public  static void registrarClases(Clases classes) {
+
+
+    public  static void registrarClases(Gymuqfit gymuqfit) {
         System.out.println("Ingrese el nombre del usuario");
         String nombre = scanner.nextLine();
 
-        System.out.println("Ingrese la apellido del usuario");
-        String apellido = scanner.nextLine();
 
-        System.out.println("Ingrese la identificacion del usuario");
-        int identificacion = scanner.nextInt();
+        System.out.println("Ingrese el usuario para separar el Cupo");
+        int cupoMaximo = scanner.nextInt();
 
-        System.out.println("Ingrese la fecha de ingreso del usuario");
-        String fechaIngreso = scanner.nextLine();
+        System.out.println("Ingrese la fecha de ingreso del usuario (YYYY-MM-DD HH:mm:ss)");
+        String fechaInicio = scanner.nextLine();
 
         System.out.println("Ingrese la fecha de salida del usuario");
-        String fechaSalida = scanner.nextLine();
+        String fechaFinalizacion = scanner.nextLine();
 
-        System.out.println("Ingrese la hora de ingreso del usuario");
-        String horaIngreso = scanner.nextLine();
+        LocalDateTime fechaInicioClases = LocalDateTime.parse(fechaInicio);
+        System.out.println("Ingrese la fecha de inicio de las clases"+fechaInicioClases);
 
-        System.out.println("Ingrese la hora de salida del usuario");
-        String horaSalida = scanner.nextLine();
+        LocalDateTime fechaFinalizacionClases = LocalDateTime.parse(fechaFinalizacion);
+        System.out.println("Ingrese la fecha de finalizacion de las clases"+fechaFinalizacionClases);
+
+        System.out.println("Ingrese el Enttrenador de la clase");
+        int identificacion = scanner.nextInt();
+
+        Entrenadores entrenadores =gymuqfit.buscarEntrenadorPorIdentificacion(identificacion);
+
+        System.out.println("Ingrese el Tipo de Clase");
+        String tipoDeClasesUsuario = scanner.nextLine();
+        Tipo_Clases tipo_clases;
+        try{
+        tipo_clases=Tipo_Clases.valueOf(tipoDeClasesUsuario);
+        }catch(IllegalArgumentException e){
+            tipo_clases = Tipo_Clases.OTROS;
+        }
+
+
+       Clases clases = new Clases(nombre, cupoMaximo,fechaInicioClases,fechaFinalizacionClases,entrenadores,tipo_clases);
+
+        gymuqfit.registrarClases(clases);
+        System.out.println("La clase a sido registrada");
 
     }
     public  static void verificarInformacionUsuario(Usuario usuario){
@@ -306,22 +480,33 @@ public class Main {
 
     }
 
-    public  static void  verificarMembresia(Membresia membresia) {
-        System.out.println("Ingrese el tipo de membresia");
-        String tipoMembresia = scanner.nextLine();
+    public  static void  asignarMembresia(Gymuqfit gymuqfit) {
+        System.out.println("Ingrese el numero de Identidicacion del usuario");
+        int identidicacion = scanner.nextInt();
+        System.out.println("Ingrese la membresia a Actualizar del usuario");
+        String tipoMembresiaString = scanner.nextLine();
+        TipoMembresia tipoMembresia;
+        if(tipoMembresiaString == "TRIMESTARL") {
+            tipoMembresia =TRIMESTRAL;
+        } else if (tipoMembresiaString=="MENSUAL") {
+            tipoMembresia =MENSUAL;
+        }else {
+            tipoMembresia = ANUAL;
+        }
+        Usuario usuario=gymuqfit.buscarUsuarioPorIdentificacion(identidicacion);
 
-        System.out.println("Ingrese el estado de membresia");
-        String estadoMembresia = scanner.nextLine();
+        boolean asignarUsuarioaMembresia= gymuqfit.asignarMembresia(usuario,tipoMembresia);
+        if(asignarUsuarioaMembresia==true) {
+            System.out.println("Seactualizo correctamente a :"+tipoMembresia.name());
 
-        System.out.println("Ingrese el costo de membresia");
-        String costoMembresia = scanner.nextLine();
+        }else {
+          System.out.println("El usuario no se encontro");
 
-        System.out.println("Ingrese la fecha de vinculacion de membresia ");
-        String fechaInicio = scanner.nextLine();
+        }
+        }
 
-        System.out.println("Ingrese la fecha de finalizacion de la membresia");
-        String fechaFinalizacion = scanner.nextLine();
-    }
+
+
 
     public  static void agendarClases(Clases clases) {
         System.out.println("Ingrese el nombre del usuario");
@@ -455,7 +640,7 @@ public class Main {
     }
 
     public void estadoDeMembresiaUsuarios(){
-        EstadoMembresia vinculado= EstadoMembresia.ACTIVO;
+        EstadoMembresia vinculado= ACTIVO;
         System.out.println("Estado del GymUqFit es: "+vinculado);
         System.out.println("Mensaje"+vinculado.getDescripcionUsuario());
 
@@ -481,7 +666,7 @@ public class Main {
     }
 
     public void costoMembresia(Membresia membresia) {
-        CostoMembresia registrado = CostoMembresia.MENSUAL;
+        TipoMembresia registrado = TipoMembresia.MENSUAL;
         System.out.println("El costo de membresia es: "+registrado);
         System.out.println("registro:"+registrado.getRegistro());
 

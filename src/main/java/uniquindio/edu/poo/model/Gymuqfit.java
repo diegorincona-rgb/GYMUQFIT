@@ -89,19 +89,19 @@ public class Gymuqfit {
         return mensaje;
     }
 
-    /**
-     * REGISTRAR USUARIOS AL GYMUQFIT
-     * @param estudiante Registrar Estudiante al GymUqFit
-     * @param trabajadoresuq Registrar TrabajadoresUq al GymUqFit
-     * @param externos Registrar Externos al GymUqFit
-     */
-    public void registarUsuario(Estudiante estudiante, Trabajadoresuq trabajadoresuq, Externos externos) {
+
+    public void registarEstudiante (Estudiante estudiante) {
         listUsuario.add(estudiante);
-        listUsuario.add(trabajadoresuq);
-        listUsuario.add(externos);
+
     }
 
+    public void registarTrabajadoresuq (Trabajadoresuq trabajadoresuq) {
+        listUsuario.add(trabajadoresuq);
+    }
 
+    public void registrarExternos (Externos externos) {
+        listUsuario.add(externos);
+        }
     /**
      * Buscar Usuario por Identificacion
      * @param identificacion Usuario
@@ -118,6 +118,16 @@ public class Gymuqfit {
         return encontrado;
     }
 
+    public boolean asignarMembresia(Usuario usuario,TipoMembresia tipoMembresia) {
+        for(Usuario u : listUsuario ){
+           if(u.getIdentificacion()==usuario.getIdentificacion()){
+               u.setTipoMembresia(tipoMembresia);
+               return true;
+           }
+        }
+        return false;
+    }
+
 
     /**
      * Registrar Entrenadores al GymUqFit
@@ -127,15 +137,18 @@ public class Gymuqfit {
         listEntrenadores.add(entrenadores);
     }
 
+    public void registrarClases(Clases clases) {
+        listClases.add(clases);
+    }
 
     public Membresia registrarMembresia(Membresia membresia) {
         listMembresia.add(membresia);
     return membresia;
     }
 
-    public void CostoMembresia(Membresia membresia ) {
-        listUsuario.add(membresia.getUsuario());
-
+    public ActividadDeportiva registrarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
+        listActividadDeportiva.add(actividadDeportiva);
+        return actividadDeportiva;
     }
 
 
@@ -149,41 +162,10 @@ public class Gymuqfit {
         }
         return resultado;
     }
-
-    public boolean buscarMembresia(int identificacion) {
-        Usuario registrar = true;
-        for (Membresia usuario : listMembresia) {
-            if (identificacion == usuario.getUsuario()) {
-                registrar = false;
-                break;
-            }
-        }
-        return registrar != null;
-
-    }
-
-
-
-    public Membresia vincularUsuariosClasesGrupales(Clases_Grupales) {
-        Clases encontrado = null;
-        for (Clases clases : listClases) {
-            if (Clases.Clases_Grupales(YOGA, SPINING, ZUMBA, OTROS) == clases_Grupales) {
-                encontrado = clases;
-                break;
-            }
-        }
-        return encontrado;
-    }
-
-    public Clases agregarClasesYoga(int identificacion) {
-
-    }
-
-
-    public Entrenadores asignarEntrenadoresClasesGrupales(Clases_Grupales) {
+    public Entrenadores buscarEntrenadorPorIdentificacion(int identificacion) {
         Entrenadores encontrado = null;
         for (Entrenadores entrenadores : listEntrenadores) {
-            if (clases_Grupales.YOGA == entrenadores) {
+            if (entrenadores.getIdentificacion() == identificacion) {
                 encontrado = entrenadores;
                 break;
             }
@@ -191,114 +173,49 @@ public class Gymuqfit {
         return encontrado;
     }
 
+ //   public boolean buscarMembresia(int identificacion) {
+  //      Usuario registrar = true;
+  //      for (Membresia usuario : listMembresia) {
+  //          if (identificacion == usuario.getUsuario()) {
+  //              registrar = false;
+  //              break;
+            }
+  //      }
+ //       return registrar != null;
 
-    public void registrarClases(Clases clases) {
-        listClases.add(clases);
-    }
-
-    public void registarMembresia(Membresia membresia) {
-        listMembresia.add(membresia);
-    }
-
-    public void registrarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
-        listActividadDeportiva.add(actividadDeportiva);
-    }
-
-    public void verificarUsuario(Usuario usuario) {
-        listUsuario.add(usuario);
-    }
+ //   }
 
 
-    public void verificarClases(Clases clases) {
-        listClases.add(clases);
-    }
 
-    public void verificarEntrenador(Entrenadores entrenadores) {
-        listEntrenadores.add(entrenadores);
-    }
-
-    public void agendarUsuario(Usuario usuario) {
-        listUsuario.add(usuario);
-    }
-
-    public void agendarActividadDeportiva(ActividadDeportiva actividadDeportiva) {
-        listActividadDeportiva.add(actividadDeportiva);
-    }
-
-    public void agendarClases(Clases clases) {
-        listClases.add(clases);
-    }
-
-    public void agendarEntrenador(Entrenadores entrenadores) {
-        listEntrenadores.add(entrenadores);
-    }
-
-    public void generarUsuario(Usuario usuario) {
-        listUsuario.add(usuario);
-    }
-
-    public void eliminarUsuario(Usuario usuario) {
-        listUsuario.add(usuario);
-    }
-
-    public void TipoDeEstadoDeMaquina(ActividadDeportiva actividadDeportiva) {
-        ActividadDeportiva TipoDeMaquinas = null;
-        listActividadDeportiva.add(actividadDeportiva);
+ //   public Membresia vincularUsuariosClasesGrupales(Clases_Grupales) {
+  //      Clases encontrado = null;
+  //      for (Clases clases : listClases) {
+ //           if (Clases.Clases_Grupales(YOGA, SPINING, ZUMBA, OTROS) == clases_Grupales) {
+   //             encontrado = clases;
+     //           break;
+      //      }
+      //  }
+       // return encontrado;
+    //}
 
 
-    }
 
 
-    //METODOS GETTERS Y SETTERS
+ //   public Entrenadores asignarEntrenadoresClasesGrupales(Clases_Grupales) {
+  //      Entrenadores encontrado = null;
+ //       for (Entrenadores entrenadores : listEntrenadores) {
+  //          if (clases_Grupales.YOGA == entrenadores) {
+  //              encontrado = entrenadores;
+   //             break;
+  //          }
+   //     }
+   //     return encontrado;
+   // }
 
 
-    public List<Usuario> getListUsuario() {
-        return listUsuario;
-    }
-
-    public List<Clases> getListClases() {
-        return listClases;
-    }
-
-    public List<ActividadDeportiva> getListActividadDeportiva() {
-        return listActividadDeportiva;
-    }
-
-    public List<Membresia> getListMembresia() {
-        return listMembresia;
-    }
-
-    public List<Entrenadores> getListEntrenadores() {
-        return listEntrenadores;
-    }
-
-    public TipoDeEstado getTipoDeEstado() {
-        return tipoDeEstado;
-    }
-
-    public void setListUsuario(List<Usuario> listUsuario) {
-        this.listUsuario = listUsuario;
-    }
-
-    public void setListClases(List<Clases> listClases) {
-        this.listClases = listClases;
-    }
-
-    public void setListActividadDeportiva(List<ActividadDeportiva> listActividadDeportiva) {
-        this.listActividadDeportiva = listActividadDeportiva;
-    }
-
-    public void setListMembresia(List<Membresia> listMembresia) {
-        this.listMembresia = listMembresia;
-    }
-
-    public void setListEntrenadores(List<Entrenadores> listEntrenadores) {
-        this.listEntrenadores = listEntrenadores;
-    }
-
-    public void setTipoDeEstado(TipoDeEstado tipoDeEstado) {
-        this.tipoDeEstado = tipoDeEstado;
-    }
+ //   public void registrarClases(Clases clases) {
+   //     listClases.add(clases);
+   // }
 
 
 
@@ -307,7 +224,7 @@ public class Gymuqfit {
 
 
 
-}
+
 
 
 
