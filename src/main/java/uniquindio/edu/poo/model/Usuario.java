@@ -48,7 +48,6 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
     }
 
 
-    public abstract double calcularMedidas();
 
 
 
@@ -182,6 +181,9 @@ public Usuario(String nombres,String apellidos,int identificacion,String direcci
                 ", listActividadDeportivaUsuario=" + listActividadDeportivaUsuario +
                 '}';
     }
+
+    public abstract double calcularMedidas();
+
 }
 
 
